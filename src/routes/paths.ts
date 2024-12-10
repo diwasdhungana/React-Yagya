@@ -4,17 +4,23 @@ export const paths = {
     login: '/auth/login',
     register: '/auth/register',
   },
-
-  dashboard: {
-    root: '/dashboard',
-    home: '/dashboard/home',
-    requests: {
-      root: '/dashboard/requests/',
-      loan: '/dashboard/requests/loan',
-      leave: '/dashboard/requests/leave',
+  root: {
+    root: '/',
+    aboutUs: {
+      root: '/about-us',
     },
-    management: {
-      root: '/dashboard/management',
+    blogs: {
+      root: '/blogs',
     },
+    faqs: {
+      root: '/faqs',
+    },
+    contactUs: {
+      root: '/contact-us',
+    },
+  },
+  chat: {
+    root: '/chat',
+    room: '/chat/:id',
   },
 };

@@ -27,3 +27,13 @@ export const useLogout = createPostMutationHook({
     onError: (error) => {},
   },
 });
+
+export const useRegister = createPostMutationHook({
+  endpoint: 'auth/register',
+  bodySchema: z.any(),
+  responseSchema: z.any(),
+  rMutationParams: {
+    onSuccess: () => {},
+    onError: (error) => {},
+  },
+});

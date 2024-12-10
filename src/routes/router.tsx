@@ -2,14 +2,24 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { AuthGuard } from '@/guards/auth-guard';
 import { GuestGuard } from '@/guards/guest-guard';
 import { AuthLayout } from '@/layouts/auth';
-import { DashboardLayout } from '@/layouts/dashboard';
+import { DashboardLayout } from '@/layouts/app';
 import { LazyPage } from './lazy-page';
 import { paths } from './paths';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Navigate to={paths.dashboard.root} replace />,
+    element: (
+      <GuestGuard>
+        <DashboardLayout />
+      </GuestGuard>
+    ),
+    children: [
+      {
+        path: paths.root.root,
+        element: LazyPage(() => import('@/pages/dashboard/home')),
+      },
+    ],
   },
   {
     path: paths.auth.root,
@@ -35,7 +45,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: paths.dashboard.root,
+    path: paths.root.root,
     element: (
       // <AuthGuard>
       <DashboardLayout />
@@ -44,12 +54,43 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        path: paths.dashboard.root,
-        element: <Navigate to={paths.dashboard.home} replace />,
+        path: paths.root.aboutUs.root,
+        element: LazyPage(() => import('@/pages/dashboard/about-us')),
       },
       {
-        path: paths.dashboard.home,
-        element: LazyPage(() => import('@/pages/dashboard/home')),
+        index: true,
+        path: paths.root.blogs.root,
+        element: LazyPage(() => import('@/pages/dashboard/blogs')),
+      },
+      {
+        index: true,
+        path: paths.root.faqs.root,
+        element: LazyPage(() => import('@/pages/dashboard/faqs')),
+      },
+      {
+        index: true,
+        path: paths.root.contactUs.root,
+        element: LazyPage(() => import('@/pages/dashboard/contact-us')),
+      },
+    ],
+  },
+  {
+    path: paths.chat.root,
+    element: (
+      // <AuthGuard>
+      <AuthLayout />
+      // </AuthGuard>
+    ),
+    children: [
+      {
+        index: true,
+        path: paths.chat.root,
+        element: LazyPage(() => import('@/pages/dashboard/chat')),
+      },
+      {
+        index: true,
+        path: paths.chat.room,
+        element: LazyPage(() => import('@/pages/dashboard/chat/room')),
       },
     ],
   },
