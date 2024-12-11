@@ -6,7 +6,7 @@ export function AuthLayout() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#744fa271]">
+    <div className="min-h-screen flex flex-col">
       <Outlet />;
     </div>
   );

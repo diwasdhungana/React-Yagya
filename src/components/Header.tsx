@@ -3,16 +3,17 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { paths } from '@/routes';
+import { LinkTo } from './ui/navigate-link';
 
 export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <header className="bg-[#FFFAF0] border-b">
+    <header className="bg-card border-b">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div
           className="flex items-center space-x-2 cursor-pointer"
-          onClick={() => navigate(paths.dashboard.home)}
+          onClick={() => navigate(paths.root.root)}
         >
           <img
             className="mx-auto h-12 w-auto"
@@ -21,39 +22,40 @@ export default function Header() {
             width={46}
             height={23}
           />
-          <span className="text-xl font-bold text-[#8B4513]">Yagya.ai</span>
+          <span className="text-xl font-bold text-primary">Yagya.ai</span>
         </div>
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="/about-us" className="text-[#8B4513] hover:text-[#654321]">
+          <LinkTo to={paths.root.aboutUs.root} variant="accent">
             About Us
-          </a>
-          <a href="/blogs" className="text-[#8B4513] hover:text-[#654321]">
+          </LinkTo>
+          <LinkTo to={paths.root.blogs.root} variant="accent">
             Blogs
-          </a>
-          <a href="/faqs" className="text-[#8B4513] hover:text-[#654321]">
+          </LinkTo>
+          <LinkTo to={paths.root.faqs.root} variant="accent">
             FAQs
-          </a>
-          <a href="/contact-us" className="text-[#8B4513] hover:text-[#654321]">
+          </LinkTo>
+          <LinkTo to={paths.root.contactUs.root} variant="accent">
             Contact Us
-          </a>
+          </LinkTo>
         </nav>
+
         <div className="flex items-center space-x-4">
           <Button
             variant="ghost"
-            className="text-[#8B4513]"
+            className="text-primary"
             onClick={() => navigate(paths.auth.login)}
           >
             Log In
           </Button>
           <Button
-            className="bg-[#FFA500] text-white hover:bg-[#FF8C00]"
+            // className="bg-[#FFA500] text-white hover:bg-[#FF8C00]"
             onClick={() => navigate(paths.auth.register)}
           >
             Sign Up
           </Button>
-          <Button variant="ghost" className="text-[#8B4513]" onClick={() => {}}>
+          {/* <Button variant="destructive" onClick={() => {}}>
             Sign Out
-          </Button>
+          </Button> */}
         </div>
       </div>
     </header>

@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 export function DashboardLayout() {
   return (
     <div>
-      <div className="min-h-screen flex flex-col bg-[#FFFAF0]">
+      <div className="min-h-screen flex flex-col">
         <Header />
         <Outlet />
         <Footer />

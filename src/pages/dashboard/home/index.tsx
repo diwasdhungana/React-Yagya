@@ -1,15 +1,16 @@
 import { Notification } from '@/components/notification';
 import { Button } from '@/components/ui/button';
+import { Page } from '@/components/ui/page';
 export default function HomePage() {
   return (
-    <div>
+    <Page title="Home">
       why?
       <Button
         onClick={() => Notification.success('You will be notified when the product is available!')}
-        className="px-5 py-3 text-white bg-blue-500 rounded"
+        className="px-5 py-3 text-white bg-primary rounded"
       >
         Notify me!
       </Button>
-    </div>
+    </Page>
   );
 }
