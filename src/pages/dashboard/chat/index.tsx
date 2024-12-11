@@ -1,7 +1,8 @@
+import { Page } from '@/components/ui/page';
 import React from 'react';
 
 const index = () => {
-  return <div>This is the landing page for chat interface.</div>;
+  return <Page title="Chat Page">how</Page>;
 };
 
 export default index;

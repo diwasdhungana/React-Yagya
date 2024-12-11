@@ -5,6 +5,7 @@ import { AuthLayout } from '@/layouts/auth';
 import { DashboardLayout } from '@/layouts/app';
 import { LazyPage } from './lazy-page';
 import { paths } from './paths';
+import { ChatLayout } from '@/layouts/app/chat';
 
 const router = createBrowserRouter([
   {
@@ -78,7 +79,7 @@ const router = createBrowserRouter([
     path: paths.chat.root,
     element: (
       // <AuthGuard>
-      <AuthLayout />
+      <ChatLayout />
       // </AuthGuard>
     ),
     children: [

@@ -2,8 +2,8 @@ import { SigninForm } from '@/components/signInComponents/SigninForm';
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md ">
         <img
           className="mx-auto h-12 w-auto"
           alt="Yagya.ai Logo"
@@ -17,7 +17,7 @@ export default function LoginPage() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="bg-[#d9cde7] py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <SigninForm />
         </div>
       </div>

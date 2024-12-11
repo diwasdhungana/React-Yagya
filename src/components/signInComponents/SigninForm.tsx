@@ -75,7 +75,7 @@ export function SigninForm() {
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="mt-1"
+          className="mt-1 "
         />
       </div>
 
@@ -104,7 +104,7 @@ export function SigninForm() {
         </Alert>
       )}
 
-      <Button type="submit" className="w-full" disabled={isPending}>
+      <Button type="submit" className="w-full " disabled={isPending}>
         {isPending ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
