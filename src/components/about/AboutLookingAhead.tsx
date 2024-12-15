@@ -1,20 +1,17 @@
-import React from "react";
-import { FutureFeatures } from "./looking-ahead/FutureFeatures";
-import { GlobalImpact } from "./looking-ahead/GlobalImpact";
-import { FuturePromise } from "./looking-ahead/FuturePromise";
+import React from 'react';
+import { FutureFeatures } from './looking-ahead/FutureFeatures';
+import { GlobalImpact } from './looking-ahead/GlobalImpact';
+import { FuturePromise } from './looking-ahead/FuturePromise';
 
 export function AboutLookingAhead() {
   return (
-    <section className="py-24 bg-[#FFF5E6]">
+    <section className="py-24 text-primary/10">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#8B4513] mb-4">
-            Looking Ahead
-          </h2>
-          <p className="text-lg text-[#654321] max-w-2xl mx-auto">
-            At Yagya.ai, we're just getting started. Our vision for the future
-            is bold and ambitious, driven by our commitment to empower
-            changemakers worldwide.
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Looking Ahead</h2>
+          <p className="text-lg text-foreground max-w-2xl mx-auto">
+            At Yagya.ai, we're just getting started. Our vision for the future is bold and
+            ambitious, driven by our commitment to empower changemakers worldwide.
           </p>
         </div>
 

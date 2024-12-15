@@ -12,7 +12,7 @@ import { AboutJoinUs } from "@/components/about/AboutJoinUs";
 
 export default function AboutUs() {
   return (
-    <div className="bg-[#FFFAF0] min-h-screen">
+    <div className="bg-background min-h-screen">
       <AboutHero />
       <AboutIntro />
       <YagyaMeaning />

@@ -4,25 +4,25 @@ import { Calendar, Award, Users, Rocket } from "lucide-react";
 
 const milestones = [
   {
-    icon: <Calendar className="w-6 h-6 text-[#FFA500]" />,
+    icon: <Calendar className="w-6 h-6 text-primary" />,
     year: "2023",
     title: "The Beginning",
     description: "Founded with a vision to democratize AI innovation.",
   },
   {
-    icon: <Users className="w-6 h-6 text-[#FFA500]" />,
+    icon: <Users className="w-6 h-6 text-primary" />,
     year: "2023",
     title: "Growing Community",
     description: "Reached our first 1,000 active innovators.",
   },
   {
-    icon: <Award className="w-6 h-6 text-[#FFA500]" />,
+    icon: <Award className="w-6 h-6 text-primary" />,
     year: "2024",
     title: "Recognition",
     description: "Named one of the most promising AI startups in South Asia.",
   },
   {
-    icon: <Rocket className="w-6 h-6 text-[#FFA500]" />,
+    icon: <Rocket className="w-6 h-6 text-primary" />,
     year: "2024",
     title: "Global Expansion",
     description: "Launched partnerships across multiple continents.",
@@ -31,13 +31,13 @@ const milestones = [
 
 export function AboutTimeline() {
   return (
-    <section className="py-20 bg-[#FFF5E6]">
+    <section className="py-20 bg-primary/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-[#8B4513] mb-4">
+          <h2 className="text-3xl font-bold text-primary mb-4">
             Our Journey
           </h2>
-          <p className="text-lg text-[#654321] max-w-2xl mx-auto">
+          <p className="text-lg text-secondary max-w-2xl mx-auto">
             From a simple idea to a global innovation platform, here&apos;s how
             we&apos;ve grown.
           </p>
@@ -54,13 +54,13 @@ export function AboutTimeline() {
                     {milestone.icon}
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-[#FFA500] mb-1">
+                    <div className="text-sm font-semibold text-primary mb-1">
                       {milestone.year}
                     </div>
-                    <h3 className="text-xl font-semibold text-[#8B4513] mb-2">
+                    <h3 className="text-xl font-semibold text-primary mb-2">
                       {milestone.title}
                     </h3>
-                    <p className="text-[#654321]">{milestone.description}</p>
+                    <p className="text-secondary">{milestone.description}</p>
                   </div>
                 </div>
               </Card>

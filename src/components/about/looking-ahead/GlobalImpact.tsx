@@ -1,45 +1,43 @@
-import React from "react";
-import { Card } from "@/components/ui/card";
-import { Globe, Users, Network, Rocket } from "lucide-react";
+import React from 'react';
+import { Card } from '@/components/ui/card';
+import { Globe, Users, Network, Rocket } from 'lucide-react';
 
 const expansionPlans = [
   {
-    icon: <Globe className="w-5 h-5 text-[#FFA500]" />,
-    title: "Regional Growth",
-    description: "Systematic expansion across South Asia",
+    icon: <Globe className="w-5 h-5 text-primary" />,
+    title: 'Regional Growth',
+    description: 'Systematic expansion across South Asia',
   },
   {
-    icon: <Users className="w-5 h-5 text-[#FFA500]" />,
-    title: "Cultural Adaptation",
-    description: "Localized versions for different regions",
+    icon: <Users className="w-5 h-5 text-primary" />,
+    title: 'Cultural Adaptation',
+    description: 'Localized versions for different regions',
   },
   {
-    icon: <Network className="w-5 h-5 text-[#FFA500]" />,
-    title: "Global Partnerships",
-    description: "Collaborations with international organizations",
+    icon: <Network className="w-5 h-5 text-primary" />,
+    title: 'Global Partnerships',
+    description: 'Collaborations with international organizations',
   },
   {
-    icon: <Rocket className="w-5 h-5 text-[#FFA500]" />,
-    title: "Local Impact",
-    description: "Supporting region-specific challenges",
+    icon: <Rocket className="w-5 h-5 text-primary" />,
+    title: 'Local Impact',
+    description: 'Supporting region-specific challenges',
   },
 ];
 
 const focusRegions = [
-  "Southeast Asian nations facing similar development challenges",
-  "African countries with growing social entrepreneurship ecosystems",
-  "Latin American communities driving innovative social solutions",
-  "Other regions where technology can amplify social impact",
+  'Southeast Asian nations facing similar development challenges',
+  'African countries with growing social entrepreneurship ecosystems',
+  'Latin American communities driving innovative social solutions',
+  'Other regions where technology can amplify social impact',
 ];
 
 export function GlobalImpact() {
   return (
     <div className="space-y-12">
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-[#8B4513] mb-4">
-          Global Impact Vision
-        </h3>
-        <p className="text-lg text-[#654321]">
+        <h3 className="text-2xl font-bold text-primary mb-4">Global Impact Vision</h3>
+        <p className="text-lg text-foreground">
           While our journey began in Nepal, our vision extends far beyond.
         </p>
       </div>
@@ -48,10 +46,10 @@ export function GlobalImpact() {
         {expansionPlans.map((plan, index) => (
           <Card key={index} className="p-4 hover:shadow-md transition-shadow">
             <div className="flex items-start space-x-3">
-              <div className="p-2 bg-[#FFF5E6] rounded-full">{plan.icon}</div>
+              <div className="p-2 text-primary/10 rounded-full">{plan.icon}</div>
               <div>
-                <h4 className="font-semibold text-[#8B4513]">{plan.title}</h4>
-                <p className="text-sm text-[#654321]">{plan.description}</p>
+                <h4 className="font-semibold text-primary">{plan.title}</h4>
+                <p className="text-sm text-foreground">{plan.description}</p>
               </div>
             </div>
           </Card>
@@ -59,14 +57,12 @@ export function GlobalImpact() {
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow-md">
-        <h4 className="text-xl font-semibold text-[#8B4513] mb-4">
-          Focus Regions
-        </h4>
+        <h4 className="text-xl font-semibold text-primary mb-4">Focus Regions</h4>
         <div className="grid md:grid-cols-2 gap-4">
           {focusRegions.map((region, index) => (
             <div key={index} className="flex items-start space-x-2">
-              <span className="inline-block w-2 h-2 mt-2 bg-[#FFA500] rounded-full" />
-              <p className="text-[#654321]">{region}</p>
+              <span className="inline-block w-2 h-2 mt-2 bg-primary rounded-full" />
+              <p className="text-foreground">{region}</p>
             </div>
           ))}
         </div>

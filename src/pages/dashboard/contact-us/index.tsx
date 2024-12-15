@@ -31,7 +31,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="bg-[#FFFAF0] min-h-screen">
+    <div className="bg-background min-h-screen">
       <ContactHero />
       <div className="container mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-2 gap-12">

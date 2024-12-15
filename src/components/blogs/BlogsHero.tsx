@@ -1,20 +1,18 @@
-import React from "react";
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import React from 'react';
+import { Search } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 export function BlogsHero() {
   return (
-    <section className="relative bg-gradient-to-br from-[#8B4513] to-[#654321] text-white py-24">
+    <section className="relative bg-gradient-to-br from-primary/80 to-primary/50 text-white py-24">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80')] opacity-10 bg-cover bg-center" />
 
       <div className="container mx-auto px-6 relative">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Insights, Stories, and Updates
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Insights, Stories, and Updates</h1>
           <p className="text-lg md:text-xl opacity-90 mb-8">
-            Discover the latest trends, ideas, and success stories from the
-            Yagya.ai community and beyond.
+            Discover the latest trends, ideas, and success stories from the Yagya.ai community and
+            beyond.
           </p>
 
           <div className="relative max-w-2xl mx-auto">

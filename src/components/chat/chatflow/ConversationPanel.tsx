@@ -44,9 +44,9 @@ export function ConversationPanel({
 
   return (
     <div className="h-full flex flex-col border-r bg-gray-50">
-      <div className="p-4 border-b bg-white">
+      {/* <div className="p-4 border-b bg-white">
         <h2 className="text-xl font-semibold">Conversation with Rishi</h2>
-      </div>
+      </div> */}
       <div className="flex-1 overflow-y-auto">
         {allMessages.map((message) => (
           <ChatMessage

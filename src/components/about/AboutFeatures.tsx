@@ -1,29 +1,29 @@
-import React from "react";
-import { Card } from "@/components/ui/card";
-import { Brain, Lock, Users, Sparkles } from "lucide-react";
+import React from 'react';
+import { Card } from '@/components/ui/card';
+import { Brain, Lock, Users, Sparkles } from 'lucide-react';
 
 const features = [
   {
-    icon: <Brain className="w-8 h-8 text-[#FFA500]" />,
-    title: "AI-Powered Personalization",
+    icon: <Brain className="w-8 h-8 text-primary" />,
+    title: 'AI-Powered Personalization',
     description:
-      "We utilize cutting-edge Artificial Intelligence and Large Language Models (LLMs) to deliver highly personalized recommendations. From compatible connections to complementary resources, our platform tailors suggestions based on your unique profile and goals.",
+      'We utilize cutting-edge Artificial Intelligence and Large Language Models (LLMs) to deliver highly personalized recommendations. From compatible connections to complementary resources, our platform tailors suggestions based on your unique profile and goals.',
   },
   {
-    icon: <Lock className="w-8 h-8 text-[#FFA500]" />,
-    title: "Explainable AI",
+    icon: <Lock className="w-8 h-8 text-primary" />,
+    title: 'Explainable AI',
     description:
-      "Our commitment to transparency ensures you understand how and why recommendations are made. With explainable AI, we demystify the process, empowering you to make informed decisions and build trust in our technology.",
+      'Our commitment to transparency ensures you understand how and why recommendations are made. With explainable AI, we demystify the process, empowering you to make informed decisions and build trust in our technology.',
   },
   {
-    icon: <Users className="w-8 h-8 text-[#FFA500]" />,
-    title: "Focus on Collaboration",
+    icon: <Users className="w-8 h-8 text-primary" />,
+    title: 'Focus on Collaboration',
     description:
       "Yagya.ai isn't just about making connections—it's about building meaningful partnerships. By prioritizing real-world impact, we foster a culture of collaboration, enabling individuals and organizations to co-create innovative solutions.",
   },
   {
-    icon: <Sparkles className="w-8 h-8 text-[#FFA500]" />,
-    title: "Collective Impact",
+    icon: <Sparkles className="w-8 h-8 text-primary" />,
+    title: 'Collective Impact',
     description:
       "These unique elements empower changemakers to unlock their full potential, making Yagya.ai more than a platform—it's a partner in your journey to create positive change.",
   },
@@ -34,13 +34,12 @@ export function AboutFeatures() {
     <section className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#8B4513] mb-4">
-            What Makes Us <span className="text-[#FFA500]">Unique</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            What Makes Us <span className="text-primary">Unique</span>
           </h2>
-          <p className="text-lg text-[#654321] max-w-2xl mx-auto">
-            At Yagya.ai, we stand apart by combining technology, transparency,
-            and collaboration to create a truly transformative experience for
-            our users.
+          <p className="text-lg text-foreground max-w-2xl mx-auto">
+            At Yagya.ai, we stand apart by combining technology, transparency, and collaboration to
+            create a truly transformative experience for our users.
           </p>
         </div>
 
@@ -48,18 +47,12 @@ export function AboutFeatures() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="p-8 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-[#FFF5E6]"
+              className="p-8 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-card to-primary/5"
             >
               <div className="space-y-6">
-                <div className="p-4 bg-[#FFF5E6] rounded-full w-fit">
-                  {feature.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-[#8B4513]">
-                  {feature.title}
-                </h3>
-                <p className="text-[#654321] leading-relaxed">
-                  {feature.description}
-                </p>
+                <div className="p-4 bg-primary/10 rounded-full w-fit">{feature.icon}</div>
+                <h3 className="text-2xl font-bold text-primary">{feature.title}</h3>
+                <p className="text-foreground leading-relaxed">{feature.description}</p>
               </div>
             </Card>
           ))}

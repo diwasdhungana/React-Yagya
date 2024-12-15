@@ -1,18 +1,16 @@
-import React from "react";
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import React from 'react';
+import { Search } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 export function FAQsHero() {
   return (
-    <section className="relative bg-gradient-to-br from-[#8B4513] to-[#654321] text-white py-16">
+    <section className="relative bg-gradient-to-br from-[#8B4513] to-primary text-white py-16">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Frequently Asked Questions
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
           <p className="text-lg md:text-xl opacity-90 mb-8">
-            Find answers to common questions about Yagya.ai and how we can help
-            you make a difference.
+            Find answers to common questions about Yagya.ai and how we can help you make a
+            difference.
           </p>
 
           <div className="relative max-w-2xl mx-auto">
@@ -26,7 +24,7 @@ export function FAQsHero() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#FFFAF0] transform -skew-y-2"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-accent transform -skew-y-2"></div>
     </section>
   );
 }

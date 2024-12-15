@@ -27,7 +27,7 @@ function App() {
       <div className="flex-1 flex flex-col min-w-0">
         {!isNewChat && (
           <header className="bg-white border-b p-4 flex items-center gap-4">
-            <button
+            {/* <button
               onClick={toggleSidebar}
               className="p-2 hover:bg-gray-100 rounded-lg text-gray-600"
             >
@@ -36,7 +36,7 @@ function App() {
               ) : (
                 <PanelLeftOpen className="w-5 h-5" />
               )}
-            </button>
+            </button> */}
             <h1 className="text-xl font-semibold">Rishi</h1>
           </header>
         )}

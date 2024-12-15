@@ -1,55 +1,47 @@
-import React from "react";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { User, Clock, Tag } from "lucide-react";
+import React from 'react';
+import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { User, Clock, Tag } from 'lucide-react';
 
 const latestBlogs = [
   {
-    title: "Leveraging AI for Social Good",
+    title: 'Leveraging AI for Social Good',
     excerpt:
-      "How artificial intelligence is helping organizations maximize their social impact and reach more people in need.",
-    author: "Dr. Sarah Chen",
-    date: "March 18, 2024",
-    tags: ["AI", "Social Impact", "Innovation"],
-    image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80",
+      'How artificial intelligence is helping organizations maximize their social impact and reach more people in need.',
+    author: 'Dr. Sarah Chen',
+    date: 'March 18, 2024',
+    tags: ['AI', 'Social Impact', 'Innovation'],
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80',
   },
   {
-    title: "Building Inclusive Communities",
+    title: 'Building Inclusive Communities',
     excerpt:
-      "Practical strategies for creating and nurturing communities that welcome and empower everyone.",
-    author: "Miguel Rodriguez",
-    date: "March 16, 2024",
-    tags: ["Community", "Inclusion", "Leadership"],
-    image:
-      "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&q=80",
+      'Practical strategies for creating and nurturing communities that welcome and empower everyone.',
+    author: 'Miguel Rodriguez',
+    date: 'March 16, 2024',
+    tags: ['Community', 'Inclusion', 'Leadership'],
+    image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&q=80',
   },
   {
-    title: "The Future of Collaborative Innovation",
+    title: 'The Future of Collaborative Innovation',
     excerpt:
-      "Exploring new models of cooperation that are reshaping how we solve global challenges.",
-    author: "Emma Thompson",
-    date: "March 15, 2024",
-    tags: ["Innovation", "Collaboration", "Future"],
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80",
+      'Exploring new models of cooperation that are reshaping how we solve global challenges.',
+    author: 'Emma Thompson',
+    date: 'March 15, 2024',
+    tags: ['Innovation', 'Collaboration', 'Future'],
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80',
   },
 ];
 
 export function LatestBlogs() {
   return (
-    <section className="py-16 bg-[#FFF5E6]">
+    <section className="py-16 text-primary/10">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-[#8B4513] mb-8">
-          Latest Articles
-        </h2>
+        <h2 className="text-3xl font-bold text-primary mb-8">Latest Articles</h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {latestBlogs.map((blog, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden hover:shadow-lg transition-shadow"
-            >
+            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="flex flex-col">
                 <div
                   className="h-48 bg-cover bg-center"
@@ -57,15 +49,13 @@ export function LatestBlogs() {
                 />
                 <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="text-xl font-bold text-[#8B4513] mb-2">
-                      {blog.title}
-                    </h3>
-                    <p className="text-[#654321] mb-4">{blog.excerpt}</p>
+                    <h3 className="text-xl font-bold text-primary mb-2">{blog.title}</h3>
+                    <p className="text-foreground mb-4">{blog.excerpt}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {blog.tags.map((tag, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center text-sm text-[#FFA500] bg-white px-2 py-1 rounded-full"
+                          className="flex items-center text-sm text-primary bg-white px-2 py-1 rounded-full"
                         >
                           <Tag className="w-3 h-3 mr-1" />
                           {tag}
@@ -75,7 +65,7 @@ export function LatestBlogs() {
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between text-sm text-[#8B4513] mb-4">
+                    <div className="flex items-center justify-between text-sm text-foreground mb-4">
                       <div className="flex items-center">
                         <User className="w-4 h-4 mr-2" />
                         {blog.author}
@@ -85,9 +75,7 @@ export function LatestBlogs() {
                         {blog.date}
                       </div>
                     </div>
-                    <Button className="w-full bg-[#FFA500] hover:bg-[#FF8C00] text-white">
-                      Read More
-                    </Button>
+                    <Button className="w-full  text-white">Read More</Button>
                   </div>
                 </div>
               </div>
@@ -96,10 +84,7 @@ export function LatestBlogs() {
         </div>
 
         <div className="text-center mt-8">
-          <Button
-            variant="outline"
-            className="text-[#8B4513] border-[#8B4513] hover:bg-white"
-          >
+          <Button variant="outline" className="text-primary hover:bg-white">
             Load More Articles
           </Button>
         </div>

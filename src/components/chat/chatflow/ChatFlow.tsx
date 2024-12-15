@@ -58,7 +58,7 @@ export function ChatFlow({ initialInput }: ChatFlowProps) {
           />
         </Panel>
 
-        <PanelResizeHandle className="w-1 hover:bg-orange-200 transition-colors" />
+        {/* <PanelResizeHandle className="w-1 hover:bg-orange-200 transition-colors" />
 
         <Panel defaultSize={30} minSize={20}>
           <CategoryList
@@ -75,7 +75,7 @@ export function ChatFlow({ initialInput }: ChatFlowProps) {
 
         <Panel defaultSize={45} minSize={30}>
           <ExampleList examples={selectedSubcategory ? examples[selectedSubcategory] : []} />
-        </Panel>
+        </Panel> */}
       </PanelGroup>
     </div>
   );

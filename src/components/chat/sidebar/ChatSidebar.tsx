@@ -18,19 +18,19 @@ export function ChatSidebar() {
       <div className="p-4">
         <NewChatButton />
       </div>
-      <ChatSearch />
-      <ChatFilter />
+      {/* <ChatSearch /> */}
+      {/* <ChatFilter /> */}
       <ChatList />
 
-      <div className="mt-auto border-t">
+      {/* <div className="mt-auto border-t">
         <ProfileDropdown
           onOpenProfile={() => setIsProfileOpen(true)}
           onOpenSettings={() => setIsSettingsOpen(true)}
           onOpenSubscription={() => setIsSubscriptionOpen(true)}
         />
-      </div>
+      </div> */}
 
-      {isProfileOpen && (
+      {/* {isProfileOpen && (
         <ProfileModal isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)} />
       )}
 
@@ -40,7 +40,7 @@ export function ChatSidebar() {
 
       {isSubscriptionOpen && (
         <Subscription isOpen={isSubscriptionOpen} onClose={() => setIsSubscriptionOpen(false)} />
-      )}
+      )} */}
     </div>
   );
 }

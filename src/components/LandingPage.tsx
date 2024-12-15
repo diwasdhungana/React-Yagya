@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { MessageSquare, Sparkles, RefreshCw } from "lucide-react";
-import { cn } from "../lib/utils";
+import React, { useState } from 'react';
+import { MessageSquare, Sparkles, RefreshCw } from 'lucide-react';
+import { cn } from '../lib/utils';
 
 interface LandingPageProps {
   onStartChat: (input: string) => void;
 }
 
 export function LandingPage({ onStartChat }: LandingPageProps) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [charCount, setCharCount] = useState(0);
   const MAX_CHARS = 500;
 
@@ -27,45 +27,43 @@ export function LandingPage({ onStartChat }: LandingPageProps) {
   };
 
   const handleRewrite = () => {
-    console.log("Rewriting input");
+    console.log('Rewriting input');
     // TODO: Implement rewrite functionality
   };
 
   const handleEnhance = () => {
-    console.log("Enhancing input");
+    console.log('Enhancing input');
     // TODO: Implement enhance functionality
   };
 
   return (
-    <div className="flex-1 flex flex-col">
-      <div className="flex-1 flex flex-col items-center justify-center px-4 py-12 bg-gradient-to-b from-orange-50 to-white">
-        <div className="w-24 h-24 mb-8 rounded-3xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center">
+    <div className="flex-1 flex flex-col ">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 py-12 bg-gradient-to-b from-primary/20 to-white">
+        <div className="w-24 h-24 mb-8 rounded-3xl bg-gradient-to-br from-orange-400 to-primary flex items-center justify-center">
           <Sparkles className="w-12 h-12 text-white" />
         </div>
 
         <h1 className="text-4xl font-bold text-center mb-4">
-          Welcome to{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">
+          Welcome to{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-primary">
             Rishi
           </span>
         </h1>
         <p className="text-gray-600 text-center max-w-xl mb-12">
-          Your AI guide to explore opportunities and connections. Share your
-          ideas and let's discover the perfect path together.
+          Your AI guide to explore opportunities and connections. Share your ideas and let's
+          discover the perfect path together.
         </p>
 
         <form onSubmit={handleSubmit} className="w-full max-w-2xl">
-          <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="bg-white/80 rounded-2xl shadow-xl p-8">
             <div className="relative mb-4">
               <textarea
                 value={input}
                 onChange={handleInputChange}
                 placeholder="Tell me about yourself and what brings you here today. What opportunities or connections are you looking to explore?"
                 className={cn(
-                  "w-full h-32 p-4 bg-gray-50 rounded-xl border-0 focus:outline-none focus:ring-2 resize-none",
-                  charCount >= MAX_CHARS
-                    ? "focus:ring-red-500"
-                    : "focus:ring-orange-500"
+                  'w-full h-32 p-4 bg-gray-50 rounded-xl border-0 focus:outline-none focus:ring-2 resize-none',
+                  charCount >= MAX_CHARS ? 'focus:ring-red-500' : 'focus:ring-orange-500'
                 )}
               />
               <div className="absolute bottom-3 right-3 text-sm text-gray-500">
@@ -104,7 +102,7 @@ export function LandingPage({ onStartChat }: LandingPageProps) {
             <button
               type="submit"
               disabled={!input.trim()}
-              className="w-full bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl py-4 px-6 hover:from-orange-600 hover:to-pink-600 transition-all duration-200 flex items-center justify-center gap-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-orange-500 to-primary/80 text-white   rounded-xl py-4 px-6 hover:from-orange-600 hover:to-pink-600 transition-all duration-200 flex items-center justify-center gap-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <MessageSquare className="w-5 h-5" />
               Start Your Journey

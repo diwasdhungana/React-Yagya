@@ -74,7 +74,7 @@ export function ContactForm() {
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold text-[#8B4513] mb-6">Send us a Message</h2>
+      <h2 className="text-2xl font-bold text-primary mb-6">Send us a Message</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
@@ -139,11 +139,7 @@ export function ContactForm() {
               </FormItem>
             )}
           />
-          <Button
-            type="submit"
-            className="w-full bg-[#FFA500] hover:bg-[#FF8C00] text-white"
-            disabled={isSubmitting}
-          >
+          <Button type="submit" className="w-full  text-white" disabled={isSubmitting}>
             {isSubmitting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

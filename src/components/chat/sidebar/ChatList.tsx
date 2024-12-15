@@ -8,7 +8,7 @@ interface ChatItem {
 }
 
 const chats: ChatItem[] = [
-  { id: '1', title: 'Project Discussion', isStarred: true },
+  { id: '1', title: 'Project Discussion', isStarred: false },
   { id: '2', title: 'Technical Support', isStarred: false },
 ];
 
