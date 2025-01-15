@@ -28,17 +28,17 @@ const contactDetails = [
 export function ContactInfo() {
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-primary mb-6">Contact Information</h2>
+      <h2 className="text-2xl font-bold text-secondary mb-6">Contact Information</h2>
       <div className="grid gap-6">
         {contactDetails.map((item, index) => (
           <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
             <div className="flex items-start space-x-4">
-              <div className="p-3  rounded-full text-primary">{item.icon}</div>
+              <div className="p-3 bg-[#FFF5E6] rounded-full text-primary">{item.icon}</div>
               <div>
-                <h3 className="font-semibold text-primary mb-2">{item.title}</h3>
+                <h3 className="font-semibold text-secondary mb-2">{item.title}</h3>
                 <div className="space-y-1">
                   {item.details.map((detail, idx) => (
-                    <p key={idx} className="text-foreground">
+                    <p key={idx} className="text-secondary/80">
                       {detail}
                     </p>
                   ))}

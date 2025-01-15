@@ -26,9 +26,9 @@ export function StoryHighlight() {
       {highlights.map((highlight, index) => (
         <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
           <div className="flex flex-col items-center text-center">
-            <div className="p-3 text-primary/10 rounded-full w-fit">{highlight.icon}</div>
-            <h3 className="text-xl font-semibold text-primary mt-4 mb-2">{highlight.title}</h3>
-            <p className="text-foreground">{highlight.description}</p>
+            <div className="p-3 bg-[#FFF5E6] rounded-full w-fit">{highlight.icon}</div>
+            <h3 className="text-xl font-semibold text-secondary mt-4 mb-2">{highlight.title}</h3>
+            <p className="text-secondary/80">{highlight.description}</p>
           </div>
         </Card>
       ))}

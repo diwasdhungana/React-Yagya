@@ -29,16 +29,14 @@ const integrationPoints = [
 export function ValuesIntegration() {
   return (
     <div className="mt-16">
-      <h3 className="text-2xl font-bold text-primary/80 text-center mb-8">
-        How We Live Our Values
-      </h3>
+      <h3 className="text-2xl font-bold text-secondary text-center mb-8">How We Live Our Values</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {integrationPoints.map((point, index) => (
           <Card key={index} className="p-4 hover:shadow-md transition-shadow">
             <div className="flex flex-col items-center text-center">
-              <div className="mb-3 p-2 bg-primary/5 rounded-full">{point.icon}</div>
-              <h4 className="font-semibold text-primary mb-2">{point.title}</h4>
-              <p className="text-sm text-foreground">{point.description}</p>
+              <div className="mb-3 p-2 bg-[#FFF5E6] rounded-full">{point.icon}</div>
+              <h4 className="font-semibold text-secondary mb-2">{point.title}</h4>
+              <p className="text-sm text-secondary/80">{point.description}</p>
             </div>
           </Card>
         ))}

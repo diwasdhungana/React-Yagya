@@ -36,8 +36,8 @@ export function GlobalImpact() {
   return (
     <div className="space-y-12">
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-primary mb-4">Global Impact Vision</h3>
-        <p className="text-lg text-foreground">
+        <h3 className="text-2xl font-bold text-secondary mb-4">Global Impact Vision</h3>
+        <p className="text-lg text-secondary/80">
           While our journey began in Nepal, our vision extends far beyond.
         </p>
       </div>
@@ -46,10 +46,10 @@ export function GlobalImpact() {
         {expansionPlans.map((plan, index) => (
           <Card key={index} className="p-4 hover:shadow-md transition-shadow">
             <div className="flex items-start space-x-3">
-              <div className="p-2 text-primary/10 rounded-full">{plan.icon}</div>
+              <div className="p-2 bg-[#FFF5E6] rounded-full">{plan.icon}</div>
               <div>
-                <h4 className="font-semibold text-primary">{plan.title}</h4>
-                <p className="text-sm text-foreground">{plan.description}</p>
+                <h4 className="font-semibold text-secondary">{plan.title}</h4>
+                <p className="text-sm text-secondary/80">{plan.description}</p>
               </div>
             </div>
           </Card>
@@ -57,12 +57,12 @@ export function GlobalImpact() {
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow-md">
-        <h4 className="text-xl font-semibold text-primary mb-4">Focus Regions</h4>
+        <h4 className="text-xl font-semibold text-secondary mb-4">Focus Regions</h4>
         <div className="grid md:grid-cols-2 gap-4">
           {focusRegions.map((region, index) => (
             <div key={index} className="flex items-start space-x-2">
               <span className="inline-block w-2 h-2 mt-2 bg-primary rounded-full" />
-              <p className="text-foreground">{region}</p>
+              <p className="text-secondary/80">{region}</p>
             </div>
           ))}
         </div>

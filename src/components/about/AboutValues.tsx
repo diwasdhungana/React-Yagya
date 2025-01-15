@@ -8,11 +8,11 @@ export function AboutValues() {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-primary/80 mb-4">Our Core Values</h2>
-          <p className="text-lg text-foreground max-w-2xl mx-auto">
-            At Yagya.ai, our values are more than just words—they&apos;re the principles that guide
-            every decision we make and every feature we build. These core values reflect our
-            commitment to creating a platform that truly serves humanity&apos;s collective progress.
+          <h2 className="text-3xl font-bold text-secondary mb-4">Our Core Values</h2>
+          <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
+            At Yagya.ai, our values are more than just words—they're the principles that guide every
+            decision we make and every feature we build. These core values reflect our commitment to
+            creating a platform that truly serves humanity's collective progress.
           </p>
         </div>
 

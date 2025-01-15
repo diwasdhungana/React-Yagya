@@ -35,9 +35,9 @@ const latestBlogs = [
 
 export function LatestBlogs() {
   return (
-    <section className="py-16 text-primary/10">
+    <section className="py-16 bg-[#FFF5E6]">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-primary mb-8">Latest Articles</h2>
+        <h2 className="text-3xl font-bold text-secondary mb-8">Latest Articles</h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {latestBlogs.map((blog, index) => (
@@ -49,8 +49,8 @@ export function LatestBlogs() {
                 />
                 <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="text-xl font-bold text-primary mb-2">{blog.title}</h3>
-                    <p className="text-foreground mb-4">{blog.excerpt}</p>
+                    <h3 className="text-xl font-bold text-secondary mb-2">{blog.title}</h3>
+                    <p className="text-secondary/80 mb-4">{blog.excerpt}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {blog.tags.map((tag, idx) => (
                         <div
@@ -65,7 +65,7 @@ export function LatestBlogs() {
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between text-sm text-foreground mb-4">
+                    <div className="flex items-center justify-between text-sm text-secondary mb-4">
                       <div className="flex items-center">
                         <User className="w-4 h-4 mr-2" />
                         {blog.author}
@@ -75,7 +75,9 @@ export function LatestBlogs() {
                         {blog.date}
                       </div>
                     </div>
-                    <Button className="w-full  text-white">Read More</Button>
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                      Read More
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -84,7 +86,7 @@ export function LatestBlogs() {
         </div>
 
         <div className="text-center mt-8">
-          <Button variant="outline" className="text-primary hover:bg-white">
+          <Button variant="outline" className="text-secondary border-secondary hover:bg-white">
             Load More Articles
           </Button>
         </div>

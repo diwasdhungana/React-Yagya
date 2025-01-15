@@ -48,7 +48,7 @@ export default function Header() {
             Log In
           </Button>
           <Button
-            // className="bg-[#FFA500] text-white hover:bg-[#FF8C00]"
+            // className="bg-primary text-white hover:bg-primary/90"
             onClick={() => navigate(paths.auth.register)}
           >
             Sign Up

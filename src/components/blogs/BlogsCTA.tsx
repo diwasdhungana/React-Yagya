@@ -4,7 +4,7 @@ import { PenTool, Send } from 'lucide-react';
 
 export function BlogsCTA() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#8B4513] to-[#654321] text-white">
+    <section className="py-20 bg-gradient-to-br from-secondary to-secondary/80 text-white">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center space-x-2 mb-6">
@@ -18,7 +18,7 @@ export function BlogsCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button size="lg" className="bg-[#FFA500] hover:bg-[#FF8C00] text-white space-x-2">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white space-x-2">
               <span>Start Writing</span>
               <PenTool className="w-4 h-4" />
             </Button>

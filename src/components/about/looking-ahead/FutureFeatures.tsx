@@ -38,7 +38,7 @@ const features = [
 export function FutureFeatures() {
   return (
     <div className="space-y-8">
-      <h3 className="text-2xl font-bold text-primary text-center mb-8">
+      <h3 className="text-2xl font-bold text-secondary text-center mb-8">
         Innovative Features in Development
       </h3>
 
@@ -46,11 +46,11 @@ export function FutureFeatures() {
         {features.map((feature, index) => (
           <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300">
             <div className="space-y-4">
-              <div className="p-3 bg-primary/10 rounded-full w-fit">{feature.icon}</div>
-              <h4 className="text-xl font-semibold text-primary">{feature.title}</h4>
+              <div className="p-3 bg-white rounded-full w-fit">{feature.icon}</div>
+              <h4 className="text-xl font-semibold text-secondary">{feature.title}</h4>
               <ul className="space-y-2">
                 {feature.items.map((item, idx) => (
-                  <li key={idx} className="flex items-start text-foreground">
+                  <li key={idx} className="flex items-start text-secondary/80">
                     <span className="inline-block w-2 h-2 mt-2 mr-2 bg-primary rounded-full" />
                     {item}
                   </li>

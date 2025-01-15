@@ -23,7 +23,7 @@ const benefits = [
 
 export function AboutJoinUs() {
   return (
-    <section className="py-20 bg-primary/80 text-white">
+    <section className="py-20 bg-gradient-to-br from-secondary to-secondary/80 text-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Us and Make a Difference</h2>
@@ -35,18 +35,24 @@ export function AboutJoinUs() {
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {benefits.map((benefit, index) => (
-            <Card key={index} className="p-6 bg-accent/50 backdrop-blur-sm border-none ">
+            <Card
+              key={index}
+              className="p-6 bg-white/10 backdrop-blur-sm border-none hover:bg-white/15 transition-all duration-300"
+            >
               <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-3 bg-white/50 rounded-full">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-primary">{benefit.title}</h3>
-                <p className="text-foreground">{benefit.description}</p>
+                <div className="p-3 bg-white/10 rounded-full">{benefit.icon}</div>
+                <h3 className="text-xl font-semibold">{benefit.title}</h3>
+                <p className="text-white/80">{benefit.description}</p>
               </div>
             </Card>
           ))}
         </div>
 
         <div className="text-center">
-          <Button size="lg" className=" text-white px-8 py-6 text-lg rounded-full">
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-full"
+          >
             Sign Up Now
           </Button>
           <p className="mt-4 text-white/80">

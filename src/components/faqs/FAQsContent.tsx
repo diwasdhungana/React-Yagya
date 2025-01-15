@@ -94,7 +94,7 @@ export function FAQsContent() {
         <div className="max-w-4xl mx-auto">
           {faqCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-12">
-              <h2 className="text-2xl font-bold text-primary/80 mb-6">{category.category}</h2>
+              <h2 className="text-2xl font-bold text-secondary mb-6">{category.category}</h2>
               <Accordion type="single" collapsible className="space-y-4">
                 {category.items.map((faq, faqIndex) => (
                   <AccordionItem
@@ -102,10 +102,10 @@ export function FAQsContent() {
                     value={`item-${categoryIndex}-${faqIndex}`}
                     className="bg-white rounded-lg shadow-sm"
                   >
-                    <AccordionTrigger className="px-6 text-primary/80 hover:text-primary font-medium">
+                    <AccordionTrigger className="px-6 text-secondary hover:text-primary font-medium">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-4 text-foreground whitespace-pre-line">
+                    <AccordionContent className="px-6 pb-4 text-secondary/80 whitespace-pre-line">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

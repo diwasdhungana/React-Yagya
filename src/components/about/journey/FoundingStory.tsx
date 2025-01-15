@@ -6,10 +6,10 @@ export function FoundingStory() {
     <div className="space-y-6">
       <div className="flex items-center space-x-3 mb-8">
         <History className="w-6 h-6 text-primary" />
-        <h3 className="text-2xl font-bold text-foreground">Our Founding Story</h3>
+        <h3 className="text-2xl font-bold text-secondary">Our Founding Story</h3>
       </div>
 
-      <div className="prose prose-lg text-foreground max-w-none">
+      <div className="prose prose-lg text-secondary/80 max-w-none">
         <p>
           Yagya.ai was born from a vision of connecting changemakers and amplifying their impact.
           The journey began with our founder, Rohit Yuvvrajchandra Budhathoki, who spent four
@@ -17,12 +17,12 @@ export function FoundingStory() {
           that individuals and organizations face when trying to create positive change.
         </p>
 
-        <div className="my-6 bg-primary/10 p-6 rounded-lg border-l-4 border-primary">
-          <p className="text-primary italic">
-            &quot; Through his own experiences as a changemaker and entrepreneur, Rohit observed a
+        <div className="my-6 bg-[#FFF5E6] p-6 rounded-lg border-l-4 border-primary">
+          <p className="text-secondary italic">
+            "Through his own experiences as a changemaker and entrepreneur, Rohit observed a
             recurring pattern: passionate individuals and innovative organizations often worked in
             isolation, unaware of potential collaborators or valuable resources that could amplify
-            their impact. &quot;
+            their impact."
           </p>
         </div>
 

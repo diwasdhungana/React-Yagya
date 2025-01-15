@@ -27,14 +27,13 @@ export function YagyaCulturalRoots() {
   return (
     <div className="grid lg:grid-cols-2 gap-12 items-center">
       <div className="space-y-6">
-        <h3 className="text-2xl md:text-3xl font-bold text-primary">Cultural Roots</h3>
-        <p className="text-lg text-foreground leading-relaxed">
-          The word &quot;Yagya&quot; originates from ancient Sanskrit, embodying profound meanings
-          rooted in Hindu philosophy. It carries a rich heritage that highlights three primary
-          layers of meaning, each contributing to our understanding of collective action and shared
-          purpose.
+        <h3 className="text-2xl md:text-3xl font-bold text-secondary">Cultural Roots</h3>
+        <p className="text-lg text-secondary/80 leading-relaxed">
+          The word "Yagya" originates from ancient Sanskrit, embodying profound meanings rooted in
+          Hindu philosophy. It carries a rich heritage that highlights three primary layers of
+          meaning, each contributing to our understanding of collective action and shared purpose.
         </p>
-        <p className="text-lg text-primary leading-relaxed">
+        <p className="text-lg text-secondary/80 leading-relaxed">
           At its heart, Yagya celebrates the spirit of giving, sacrifice, and working together to
           achieve something greater than oneself.
         </p>
@@ -42,12 +41,12 @@ export function YagyaCulturalRoots() {
 
       <div className="grid gap-6">
         {meanings.map((meaning, index) => (
-          <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 ">
-            <div className="flex items-start space-x-4 ">
-              <div className="p-3 bg-primary/10 rounded-full">{meaning.icon}</div>
+          <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300">
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-[#FFF5E6] rounded-full">{meaning.icon}</div>
               <div>
-                <h4 className="text-xl font-semibold text-primary mb-2">{meaning.title}</h4>
-                <p className="text-foreground">{meaning.description}</p>
+                <h4 className="text-xl font-semibold text-secondary mb-2">{meaning.title}</h4>
+                <p className="text-secondary/80">{meaning.description}</p>
               </div>
             </div>
           </Card>

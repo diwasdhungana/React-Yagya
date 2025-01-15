@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -45,7 +44,7 @@ export function FeaturedBlogs() {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-primary mb-8">Featured Articles</h2>
+        <h2 className="text-3xl font-bold text-secondary mb-8">Featured Articles</h2>
 
         <div className="relative">
           <div className="overflow-hidden">
@@ -63,12 +62,12 @@ export function FeaturedBlogs() {
                       />
                       <div className="p-6 flex flex-col justify-between">
                         <div>
-                          <h3 className="text-2xl font-bold text-primary mb-4">{blog.title}</h3>
-                          <p className="text-foreground mb-6">{blog.excerpt}</p>
+                          <h3 className="text-2xl font-bold text-secondary mb-4">{blog.title}</h3>
+                          <p className="text-secondary/80 mb-6">{blog.excerpt}</p>
                         </div>
 
                         <div>
-                          <div className="flex items-center space-x-4 mb-4 text-sm text-primary">
+                          <div className="flex items-center space-x-4 mb-4 text-sm text-secondary">
                             <div className="flex items-center">
                               <User className="w-4 h-4 mr-2" />
                               {blog.author}
@@ -79,7 +78,9 @@ export function FeaturedBlogs() {
                             </div>
                           </div>
 
-                          <Button className=" text-white">Read More</Button>
+                          <Button className="bg-primary hover:bg-primary/90 text-white">
+                            Read More
+                          </Button>
                         </div>
                       </div>
                     </div>
@@ -112,7 +113,7 @@ export function FeaturedBlogs() {
               <button
                 key={index}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === activeIndex ? 'bg-primary' : 'bg-primary/10'
+                  index === activeIndex ? 'bg-primary' : 'bg-secondary/20'
                 }`}
                 onClick={() => setActiveIndex(index)}
               />

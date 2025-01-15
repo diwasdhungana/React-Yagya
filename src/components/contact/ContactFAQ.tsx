@@ -89,10 +89,10 @@ const faqCategories = [
 
 export function ContactFAQ() {
   return (
-    <section className="py-20 text-primary/10">
+    <section className="py-20 bg-[#FFF5E6]">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+          <h2 className="text-3xl font-bold text-secondary mb-8 text-center">
             Frequently Asked Questions
           </h2>
 
@@ -106,10 +106,10 @@ export function ContactFAQ() {
                     value={`item-${categoryIndex}-${faqIndex}`}
                     className="bg-white rounded-lg shadow-sm"
                   >
-                    <AccordionTrigger className="px-6 text-primary hover:text-primary font-medium">
+                    <AccordionTrigger className="px-6 text-secondary hover:text-primary font-medium">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-4 text-foreground whitespace-pre-line">
+                    <AccordionContent className="px-6 pb-4 text-secondary/80 whitespace-pre-line">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

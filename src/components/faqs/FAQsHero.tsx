@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 
 export function FAQsHero() {
   return (
-    <section className="relative bg-gradient-to-br from-[#8B4513] to-primary text-white py-16">
+    <section className="relative bg-gradient-to-br from-secondary to-secondary/80 text-white py-16">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
@@ -18,7 +18,7 @@ export function FAQsHero() {
               type="search"
               placeholder="Search for answers..."
               className="w-full pl-12 pr-4 py-3 bg-white/10 backdrop-blur-sm border-white/20 
-                text-white placeholder:text-white/60 focus:ring-[#FFA500] focus:border-[#FFA500]"
+                text-white placeholder:text-white/60 focus:ring-primary focus:border-primary"
             />
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60" />
           </div>

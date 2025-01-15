@@ -35,10 +35,10 @@ export function TeamSection() {
     <div className="space-y-8">
       <div className="flex items-center space-x-3">
         <Users className="w-6 h-6 text-primary" />
-        <h3 className="text-2xl font-bold text-foreground">The Team Behind the Vision</h3>
+        <h3 className="text-2xl font-bold text-secondary">The Team Behind the Vision</h3>
       </div>
 
-      <p className="text-lg text-foreground">
+      <p className="text-lg text-secondary/80">
         Today, Yagya.ai is powered by a rapidly growing team of passionate individuals who share a
         common goal: to make positive change more accessible and impactful. Our team brings together
         diverse expertise and perspectives:
@@ -48,17 +48,17 @@ export function TeamSection() {
         {teamRoles.map((role, index) => (
           <Card key={index} className="p-4 hover:shadow-lg transition-all duration-300">
             <div className="flex items-start space-x-3">
-              <div className="p-2 bg-primary/10 rounded-full">{role.icon}</div>
+              <div className="p-2 bg-[#FFF5E6] rounded-full">{role.icon}</div>
               <div>
-                <h4 className="font-semibold text-primary">{role.title}</h4>
-                <p className="text-sm text-foreground">{role.description}</p>
+                <h4 className="font-semibold text-secondary">{role.title}</h4>
+                <p className="text-sm text-secondary/80">{role.description}</p>
               </div>
             </div>
           </Card>
         ))}
       </div>
 
-      <p className="text-lg text-foreground italic text-center">
+      <p className="text-lg text-secondary/80 italic text-center">
         Each team member brings not just technical expertise, but also a genuine commitment to our
         mission of empowering changemakers worldwide.
       </p>

@@ -29,10 +29,10 @@ export function FuturePromise() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-primary mb-4">Our Promise for the Future</h3>
-        <p className="text-lg text-foreground max-w-2xl mx-auto">
-          The future of Yagya.ai is not just about technological advancement—it&apos;s about
-          creating a global ecosystem where positive change can flourish.
+        <h3 className="text-2xl font-bold text-secondary mb-4">Our Promise for the Future</h3>
+        <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
+          The future of Yagya.ai is not just about technological advancement—it's about creating a
+          global ecosystem where positive change can flourish.
         </p>
       </div>
 
@@ -40,16 +40,16 @@ export function FuturePromise() {
         {promises.map((promise, index) => (
           <Card key={index} className="p-4 hover:shadow-md transition-shadow">
             <div className="flex flex-col items-center text-center space-y-3">
-              <div className="p-2 text-primary/10 rounded-full">{promise.icon}</div>
-              <h4 className="font-semibold text-primary">{promise.title}</h4>
-              <p className="text-sm text-foreground">{promise.description}</p>
+              <div className="p-2 bg-[#FFF5E6] rounded-full">{promise.icon}</div>
+              <h4 className="font-semibold text-secondary">{promise.title}</h4>
+              <p className="text-sm text-secondary/80">{promise.description}</p>
             </div>
           </Card>
         ))}
       </div>
 
       <div className="text-center mt-12">
-        <p className="text-lg text-foreground italic">
+        <p className="text-lg text-secondary/80 italic">
           Join us as we write the next chapter of this exciting journey, expanding our reach and
           amplifying our collective impact on the world.
         </p>

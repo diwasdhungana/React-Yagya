@@ -18,12 +18,12 @@ const tags = [
 
 export function PopularTags() {
   return (
-    <section className="py-16 text-primary/10">
+    <section className="py-16 bg-[#FFF5E6]">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center space-x-2 mb-8">
             <Tag className="w-6 h-6 text-primary" />
-            <h2 className="text-3xl font-bold text-primary">Popular Topics</h2>
+            <h2 className="text-3xl font-bold text-secondary">Popular Topics</h2>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -34,8 +34,8 @@ export function PopularTags() {
                   px-4 py-2 rounded-full transition-all duration-300
                   ${
                     index < 4
-                      ? 'bg-[#FFA500] text-white hover:bg-[#FF8C00]'
-                      : 'bg-white text-primary hover:bg-[#FFA500] hover:text-white'
+                      ? 'bg-primary text-white hover:bg-primary/90'
+                      : 'bg-white text-secondary hover:bg-primary hover:text-white'
                   }
                   text-sm font-medium
                 `}

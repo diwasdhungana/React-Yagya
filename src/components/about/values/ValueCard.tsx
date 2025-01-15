@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { LucideIcon } from 'lucide-react';
@@ -22,14 +21,14 @@ export function ValueCard({ icon, title, description, details }: ValueCardProps)
     >
       <div className="flex flex-col items-center text-center cursor-pointer">
         <div
-          className={`mb-4 p-3 bg-primary/5 rounded-full transition-transform duration-300 ${
+          className={`mb-4 p-3 bg-[#FFF5E6] rounded-full transition-transform duration-300 ${
             isExpanded ? 'scale-110' : ''
           }`}
         >
           {icon}
         </div>
-        <h3 className="text-xl font-semibold text-primary mb-2">{title}</h3>
-        <p className="text-foreground mb-4">{description}</p>
+        <h3 className="text-xl font-semibold text-secondary mb-2">{title}</h3>
+        <p className="text-secondary/80 mb-4">{description}</p>
 
         <div
           className={`overflow-hidden transition-all duration-300 ${
@@ -40,7 +39,7 @@ export function ValueCard({ icon, title, description, details }: ValueCardProps)
             {details.map((detail, index) => (
               <li key={index} className="flex items-start">
                 <span className="inline-block w-2 h-2 mt-1.5 mr-2 bg-primary rounded-full" />
-                <span className="text-primary/80">{detail}</span>
+                <span className="text-secondary/80">{detail}</span>
               </li>
             ))}
           </ul>

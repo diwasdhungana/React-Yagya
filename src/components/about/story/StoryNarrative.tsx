@@ -2,7 +2,7 @@ import React from 'react';
 
 export function StoryNarrative() {
   return (
-    <div className="prose prose-lg text-foreground mb-12">
+    <div className="prose prose-lg text-secondary/80 mb-12">
       <p className="mb-6">
         Founded in Nepal with a global vision, Yagya.ai emerged from a simple yet powerful idea:
         that artificial intelligence should be accessible and beneficial to everyone, regardless of

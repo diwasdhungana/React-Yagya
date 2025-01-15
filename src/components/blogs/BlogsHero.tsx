@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 
 export function BlogsHero() {
   return (
-    <section className="relative bg-gradient-to-br from-primary/80 to-primary/50 text-white py-24">
+    <section className="relative bg-gradient-to-br from-secondary to-secondary/80 text-white py-24">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80')] opacity-10 bg-cover bg-center" />
 
       <div className="container mx-auto px-6 relative">
@@ -20,7 +20,7 @@ export function BlogsHero() {
               type="search"
               placeholder="Search blogs by topic, keyword, or author..."
               className="w-full pl-12 pr-4 py-3 bg-white/10 backdrop-blur-sm border-white/20 
-                text-white placeholder:text-white/60 focus:ring-[#FFA500] focus:border-[#FFA500]"
+                text-white placeholder:text-white/60 focus:ring-primary focus:border-primary"
             />
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60" />
           </div>
