@@ -25,16 +25,16 @@ export default function Header() {
           <span className="text-xl font-bold text-primary">Yagya.ai</span>
         </div>
         <nav className="hidden md:flex items-center space-x-8">
-          <LinkTo to={paths.root.aboutUs.root} variant="accent">
+          <LinkTo to={paths.root.aboutUs.root} variant="default">
             About Us
           </LinkTo>
-          <LinkTo to={paths.root.blogs.root} variant="accent">
+          <LinkTo to={paths.root.blogs.root} variant="default">
             Blogs
           </LinkTo>
-          <LinkTo to={paths.root.faqs.root} variant="accent">
+          <LinkTo to={paths.root.faqs.root} variant="default">
             FAQs
           </LinkTo>
-          <LinkTo to={paths.root.contactUs.root} variant="accent">
+          <LinkTo to={paths.root.contactUs.root} variant="default">
             Contact Us
           </LinkTo>
         </nav>
