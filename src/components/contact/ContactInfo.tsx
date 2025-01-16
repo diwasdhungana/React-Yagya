@@ -33,7 +33,7 @@ export function ContactInfo() {
         {contactDetails.map((item, index) => (
           <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
             <div className="flex items-start space-x-4">
-              <div className="p-3 bg-[#FFF5E6] rounded-full text-primary">{item.icon}</div>
+              <div className="p-3 bg-background rounded-full text-primary">{item.icon}</div>
               <div>
                 <h3 className="font-semibold text-secondary mb-2">{item.title}</h3>
                 <div className="space-y-1">

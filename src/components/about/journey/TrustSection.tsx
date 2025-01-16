@@ -63,7 +63,7 @@ export function TrustSection() {
           <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300">
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-[#FFF5E6] rounded-full">{pillar.icon}</div>
+                <div className="p-2 bg-background rounded-full">{pillar.icon}</div>
                 <h4 className="text-xl font-semibold text-secondary">{pillar.title}</h4>
               </div>
               <ul className="space-y-2">
@@ -79,7 +79,7 @@ export function TrustSection() {
         ))}
       </div>
 
-      <div className="bg-[#FFF5E6] p-6 rounded-lg">
+      <div className="bg-background p-6 rounded-lg">
         <h4 className="text-xl font-semibold text-secondary mb-4">Our Commitment to You</h4>
         <p className="text-secondary/80 mb-4">
           We understand that trust is earned through consistent actions and transparency. As we

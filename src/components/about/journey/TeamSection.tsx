@@ -48,7 +48,7 @@ export function TeamSection() {
         {teamRoles.map((role, index) => (
           <Card key={index} className="p-4 hover:shadow-lg transition-all duration-300">
             <div className="flex items-start space-x-3">
-              <div className="p-2 bg-[#FFF5E6] rounded-full">{role.icon}</div>
+              <div className="p-2 bg-background rounded-full">{role.icon}</div>
               <div>
                 <h4 className="font-semibold text-secondary">{role.title}</h4>
                 <p className="text-sm text-secondary/80">{role.description}</p>

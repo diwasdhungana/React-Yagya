@@ -16,7 +16,7 @@ export function AboutMission() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-          <Card className="p-8 hover:shadow-lg transition-shadow bg-gradient-to-br from-[#FFF5E6] to-white">
+          <Card className="p-8 hover:shadow-lg transition-shadow bg-gradient-to-br from-background to-white">
             <div className="space-y-6">
               <div className="p-4 bg-white rounded-full w-fit">
                 <Rocket className="w-8 h-8 text-primary" />
@@ -30,7 +30,7 @@ export function AboutMission() {
             </div>
           </Card>
 
-          <Card className="p-8 hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-[#FFF5E6]">
+          <Card className="p-8 hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-background">
             <div className="space-y-6">
               <div className="p-4 bg-white rounded-full w-fit">
                 <Target className="w-8 h-8 text-primary" />
@@ -49,7 +49,7 @@ export function AboutMission() {
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <Card className="p-6 hover:shadow-lg transition-shadow">
             <div className="space-y-4">
-              <div className="p-3 bg-[#FFF5E6] rounded-full w-fit">
+              <div className="p-3 bg-background rounded-full w-fit">
                 <Users className="w-6 h-6 text-primary" />
               </div>
               <h4 className="text-xl font-semibold text-secondary">Collaborative Growth</h4>
@@ -61,7 +61,7 @@ export function AboutMission() {
 
           <Card className="p-6 hover:shadow-lg transition-shadow">
             <div className="space-y-4">
-              <div className="p-3 bg-[#FFF5E6] rounded-full w-fit">
+              <div className="p-3 bg-background rounded-full w-fit">
                 <Globe className="w-6 h-6 text-primary" />
               </div>
               <h4 className="text-xl font-semibold text-secondary">Global Impact</h4>
@@ -74,7 +74,7 @@ export function AboutMission() {
 
           <Card className="p-6 hover:shadow-lg transition-shadow">
             <div className="space-y-4">
-              <div className="p-3 bg-[#FFF5E6] rounded-full w-fit">
+              <div className="p-3 bg-background rounded-full w-fit">
                 <Sparkles className="w-6 h-6 text-primary" />
               </div>
               <h4 className="text-xl font-semibold text-secondary">Innovation Focus</h4>
@@ -86,7 +86,7 @@ export function AboutMission() {
           </Card>
         </div>
 
-        <div className="bg-[#FFF5E6] rounded-2xl p-8 md:p-12">
+        <div className="bg-background rounded-2xl p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <div className="p-3 bg-white rounded-full w-fit">

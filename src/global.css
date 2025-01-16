@@ -14,89 +14,89 @@ body {
 @layer base {
   :root {
     /* Base colors */
-    --background: 245 50% 95%;
-    --foreground: 250 40% 20%;
+    --background: 240 20% 98%;
+    --foreground: 240 10% 15%;
 
     /* Container elements */
-    --card: 245 50% 90%;
-    --card-foreground: 250 40% 20%;
-    --popover: 245 50% 90%;
-    --popover-foreground: 250 40% 20%;
+    --card: 240 20% 95%;
+    --card-foreground: 240 10% 15%;
+    --popover: 240 20% 95%;
+    --popover-foreground: 240 10% 15%;
 
     /* Primary colors - Expanded palette */
-    --primary: 250 60% 50%; /* Original blue-violet */
-    --primary-foreground: 245 90% 98%;
-    --secondary: 280 40% 60%; /* Complementary purple */
-    --secondary-foreground: 245 90% 98%;
-    --tertiary: 220 60% 55%; /* Rich blue */
-    --tertiary-foreground: 245 90% 98%;
+    --primary: 250 65% 45%; /* Main brand color */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 280 50% 25%; /* Complementary purple */
+    --secondary-foreground: 0 0% 100%;
+    --tertiary: 220 65% 50%; /* Rich blue */
+    --tertiary-foreground: 0 0% 100%;
 
     /* Accent colors */
-    --accent-1: 320 50% 60%; /* Magenta accent */
-    --accent-2: 190 60% 50%; /* Cyan accent */
-    --accent-3: 150 50% 55%; /* Teal accent */
-    --accent-foreground: 245 90% 98%;
+    --accent-1: 320 60% 55%; /* Magenta accent */
+    --accent-2: 190 70% 45%; /* Cyan accent */
+    --accent-3: 150 55% 50%; /* Teal accent */
+    --accent-foreground: 0 0% 100%;
 
     /* UI elements */
-    --muted: 245 30% 85%;
-    --muted-foreground: 245 20% 50%;
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 245 90% 98%;
-    --border: 245 30% 80%;
-    --input: 245 30% 80%;
-    --ring: 250 60% 50%;
+    --muted: 240 20% 90%;
+    --muted-foreground: 240 10% 40%;
+    --destructive: 0 75% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 20% 85%;
+    --input: 240 20% 85%;
+    --ring: 250 65% 45%;
     --radius: 0.5rem;
 
     /* Chart colors - Extended palette */
-    --chart-1: 250 60% 50%; /* Blue-violet */
-    --chart-2: 320 50% 60%; /* Magenta */
-    --chart-3: 190 60% 50%; /* Cyan */
-    --chart-4: 150 50% 55%; /* Teal */
-    --chart-5: 280 40% 60%; /* Purple */
-    --chart-6: 220 60% 55%; /* Blue */
+    --chart-1: 250 65% 45%; /* Primary */
+    --chart-2: 320 60% 55%; /* Magenta */
+    --chart-3: 190 70% 45%; /* Cyan */
+    --chart-4: 150 55% 50%; /* Teal */
+    --chart-5: 280 50% 55%; /* Purple */
+    --chart-6: 220 65% 50%; /* Blue */
   }
 
   .dark {
     /* Base colors */
-    --background: 245 40% 15%;
-    --foreground: 245 90% 98%;
+    --background: 240 20% 12%;
+    --foreground: 0 0% 98%;
 
     /* Container elements */
-    --card: 245 40% 20%;
-    --card-foreground: 245 90% 98%;
-    --popover: 245 40% 20%;
-    --popover-foreground: 245 90% 98%;
+    --card: 240 20% 16%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 20% 16%;
+    --popover-foreground: 0 0% 98%;
 
     /* Primary colors - Expanded palette */
-    --primary: 250 60% 50%;
-    --primary-foreground: 245 90% 98%;
-    --secondary: 280 40% 50%;
-    --secondary-foreground: 245 90% 98%;
-    --tertiary: 220 60% 45%;
-    --tertiary-foreground: 245 90% 98%;
+    --primary: 250 65% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 280 50% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --tertiary: 220 65% 55%;
+    --tertiary-foreground: 0 0% 100%;
 
     /* Accent colors */
-    --accent-1: 320 45% 50%;
-    --accent-2: 190 55% 45%;
-    --accent-3: 150 45% 45%;
-    --accent-foreground: 245 90% 98%;
+    --accent-1: 320 60% 60%;
+    --accent-2: 190 70% 50%;
+    --accent-3: 150 55% 55%;
+    --accent-foreground: 0 0% 100%;
 
     /* UI elements */
-    --muted: 245 30% 20%;
-    --muted-foreground: 245 50% 70%;
-    --destructive: 0 60% 40%;
-    --destructive-foreground: 245 90% 98%;
-    --border: 245 30% 25%;
-    --input: 245 30% 25%;
-    --ring: 250 60% 50%;
+    --muted: 240 20% 22%;
+    --muted-foreground: 240 10% 75%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 20% 24%;
+    --input: 240 20% 24%;
+    --ring: 250 65% 55%;
 
     /* Chart colors - Extended palette */
-    --chart-1: 250 60% 40%;
-    --chart-2: 320 45% 50%;
-    --chart-3: 190 55% 45%;
-    --chart-4: 150 45% 45%;
-    --chart-5: 280 40% 50%;
-    --chart-6: 220 60% 45%;
+    --chart-1: 250 65% 55%;
+    --chart-2: 320 60% 60%;
+    --chart-3: 190 70% 50%;
+    --chart-4: 150 55% 55%;
+    --chart-5: 280 50% 60%;
+    --chart-6: 220 65% 55%;
   }
 }
 

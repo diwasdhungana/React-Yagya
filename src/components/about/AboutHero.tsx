@@ -1,18 +1,18 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import { ArrowRight, Network, Brain, Users, Target } from 'lucide-react';
 
 export function AboutHero() {
   return (
-    <section className="relative bg-gradient-to-br from-secondary to-secondary/80 text-white py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-secondary/80 to-secondary/80 text-white py-32 overflow-hidden">
       {/* Background Animation Layer */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80')] opacity-10 bg-cover bg-center" />
-      
+
       {/* Animated Network Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-secondary/20 animate-pulse" />
       </div>
-      
+
       <div className="container mx-auto px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           {/* AI Badge */}
@@ -20,30 +20,30 @@ export function AboutHero() {
             <Brain className="w-4 h-4 text-primary mr-2" />
             <span className="text-sm font-medium">Meet Rishi, Your AI Discovery Engine</span>
           </div>
-          
+
           {/* Main Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Your Personalized AI Guide to{' '}
             <span className="text-primary">Connections, Resources, and Opportunities</span>
           </h1>
-          
+
           {/* Subheadline */}
           <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
-            Powered by Yagya.ai, Rishi redefines discovery. It's not just about finding the right 
-            people, resources, and opportunities—it's about accelerating your journey toward impact, 
+            Powered by Yagya.ai, Rishi redefines discovery. It's not just about finding the right
+            people, resources, and opportunities—it's about accelerating your journey toward impact,
             innovation, and success.
           </p>
-          
+
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button 
+            <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white group transition-all duration-300"
             >
               Let Rishi Guide You
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button 
+            <Button
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white/10 group"
@@ -77,7 +77,7 @@ export function AboutHero() {
           {/* Testimonial */}
           <div className="mt-16 bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
             <p className="italic text-lg">
-              "With Rishi's guidance, I found the perfect team and resources to launch my social 
+              "With Rishi's guidance, I found the perfect team and resources to launch my social
               impact initiative in weeks!"
             </p>
             <p className="mt-2 text-sm opacity-80">- Sarah Chen, Social Entrepreneur</p>

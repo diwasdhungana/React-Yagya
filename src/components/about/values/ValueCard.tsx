@@ -21,7 +21,7 @@ export function ValueCard({ icon, title, description, details }: ValueCardProps)
     >
       <div className="flex flex-col items-center text-center cursor-pointer">
         <div
-          className={`mb-4 p-3 bg-[#FFF5E6] rounded-full transition-transform duration-300 ${
+          className={`mb-4 p-3 bg-background rounded-full transition-transform duration-300 ${
             isExpanded ? 'scale-110' : ''
           }`}
         >

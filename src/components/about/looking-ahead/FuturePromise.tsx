@@ -40,7 +40,7 @@ export function FuturePromise() {
         {promises.map((promise, index) => (
           <Card key={index} className="p-4 hover:shadow-md transition-shadow">
             <div className="flex flex-col items-center text-center space-y-3">
-              <div className="p-2 bg-[#FFF5E6] rounded-full">{promise.icon}</div>
+              <div className="p-2 bg-background rounded-full">{promise.icon}</div>
               <h4 className="font-semibold text-secondary">{promise.title}</h4>
               <p className="text-sm text-secondary/80">{promise.description}</p>
             </div>

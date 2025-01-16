@@ -89,7 +89,7 @@ const faqCategories = [
 
 export function ContactFAQ() {
   return (
-    <section className="py-20 bg-[#FFF5E6]">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-secondary mb-8 text-center">

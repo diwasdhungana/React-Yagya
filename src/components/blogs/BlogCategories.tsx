@@ -31,7 +31,7 @@ const categories = [
 
 export function BlogCategories() {
   return (
-    <section className="py-16 bg-[#FFF5E6]">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-secondary mb-8">Explore by Category</h2>
 
@@ -42,7 +42,7 @@ export function BlogCategories() {
               className="p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group"
             >
               <div className="space-y-4">
-                <div className="p-3 bg-[#FFF5E6] rounded-full w-fit group-hover:bg-primary/10 transition-colors">
+                <div className="p-3 bg-background rounded-full w-fit group-hover:bg-primary/10 transition-colors">
                   {category.icon}
                 </div>
                 <div>

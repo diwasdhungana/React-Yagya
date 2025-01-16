@@ -34,7 +34,7 @@ export function ValuesIntegration() {
         {integrationPoints.map((point, index) => (
           <Card key={index} className="p-4 hover:shadow-md transition-shadow">
             <div className="flex flex-col items-center text-center">
-              <div className="mb-3 p-2 bg-[#FFF5E6] rounded-full">{point.icon}</div>
+              <div className="mb-3 p-2 bg-background rounded-full">{point.icon}</div>
               <h4 className="font-semibold text-secondary mb-2">{point.title}</h4>
               <p className="text-sm text-secondary/80">{point.description}</p>
             </div>

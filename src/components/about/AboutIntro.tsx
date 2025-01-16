@@ -8,7 +8,7 @@ export function AboutIntro() {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <div className="inline-flex items-center px-4 py-2 bg-[#FFF5E6] rounded-full">
+            <div className="inline-flex items-center px-4 py-2 bg-background rounded-full">
               <Sparkles className="w-4 h-4 text-primary mr-2" />
               <span className="text-sm font-medium text-secondary">Empowering Changemakers</span>
             </div>
@@ -26,7 +26,7 @@ export function AboutIntro() {
                 people, resources, and opportunities to unlock their full potential.
               </p>
 
-              <div className="bg-[#FFF5E6] p-6 rounded-xl">
+              <div className="bg-background p-6 rounded-xl">
                 <div className="flex items-center mb-4">
                   <Brain className="w-6 h-6 text-primary mr-2" />
                   <h3 className="text-xl font-semibold text-secondary">
@@ -59,7 +59,7 @@ export function AboutIntro() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-6">
-              <div className="bg-[#FFF5E6] p-6 rounded-xl">
+              <div className="bg-background p-6 rounded-xl">
                 <Users className="w-8 h-8 text-primary mb-4" />
                 <h3 className="text-xl font-semibold text-secondary mb-2">
                   Personalized Connections
@@ -79,7 +79,7 @@ export function AboutIntro() {
               </div>
             </div>
             <div className="space-y-6 sm:mt-12">
-              <div className="bg-gradient-to-br from-primary/10 to-[#FFF5E6] p-6 rounded-xl">
+              <div className="bg-gradient-to-br from-primary/10 to-background p-6 rounded-xl">
                 <h3 className="text-xl font-semibold text-secondary mb-2">Our Mission</h3>
                 <p className="text-secondary/80">
                   Empower you to innovate, grow, and create solutions that truly matter—whether it's

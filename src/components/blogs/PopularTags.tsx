@@ -18,7 +18,7 @@ const tags = [
 
 export function PopularTags() {
   return (
-    <section className="py-16 bg-[#FFF5E6]">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center space-x-2 mb-8">

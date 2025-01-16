@@ -47,10 +47,10 @@ export function AboutFeatures() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="p-8 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-[#FFF5E6]"
+              className="p-8 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-background"
             >
               <div className="space-y-6">
-                <div className="p-4 bg-[#FFF5E6] rounded-full w-fit">{feature.icon}</div>
+                <div className="p-4 bg-background rounded-full w-fit">{feature.icon}</div>
                 <h3 className="text-2xl font-bold text-secondary">{feature.title}</h3>
                 <p className="text-secondary/80 leading-relaxed">{feature.description}</p>
               </div>

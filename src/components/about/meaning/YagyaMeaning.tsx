@@ -4,7 +4,7 @@ import { YagyaPhilosophy } from './YagyaPhilosophy';
 
 export function YagyaMeaning() {
   return (
-    <section className="py-24 bg-[#FFF5E6]">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">

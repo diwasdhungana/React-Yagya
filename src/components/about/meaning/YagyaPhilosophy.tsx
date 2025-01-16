@@ -14,7 +14,7 @@ export function YagyaPhilosophy() {
               platform.
             </p>
           </div>
-          <div className="bg-gradient-to-br from-primary/10 to-[#FFF5E6] p-6 rounded-xl">
+          <div className="bg-gradient-to-br from-primary/10 to-background p-6 rounded-xl">
             <Network className="w-8 h-8 text-primary mb-4" />
             <h4 className="text-xl font-semibold text-secondary mb-2">United Purpose</h4>
             <p className="text-secondary/80">

@@ -45,14 +45,14 @@ export function AboutHelp() {
           {benefits.map((benefit, index) => (
             <Card
               key={index}
-              className="p-8 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-[#FFF5E6]"
+              className="p-8 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-background"
             >
               <div className="space-y-6">
-                <div className="p-4 bg-[#FFF5E6] rounded-full w-fit">{benefit.icon}</div>
+                <div className="p-4 bg-background rounded-full w-fit">{benefit.icon}</div>
                 <h3 className="text-2xl font-bold text-secondary">{benefit.title}</h3>
                 <p className="text-secondary/80 leading-relaxed">{benefit.description}</p>
                 <div className="pt-4">
-                  <span className="inline-block px-4 py-2 bg-[#FFF5E6] rounded-full text-sm font-medium text-primary">
+                  <span className="inline-block px-4 py-2 bg-background rounded-full text-sm font-medium text-primary">
                     {benefit.highlight}
                   </span>
                 </div>
@@ -61,7 +61,7 @@ export function AboutHelp() {
           ))}
         </div>
 
-        <div className="bg-[#FFF5E6] rounded-2xl p-8 md:p-12 text-center">
+        <div className="bg-background rounded-2xl p-8 md:p-12 text-center">
           <h3 className="text-2xl font-bold text-secondary mb-4">Ready to Make a Difference?</h3>
           <p className="text-secondary/80 max-w-2xl mx-auto mb-8">
             With Yagya.ai, you spend less time searching and more time innovating, collaborating,

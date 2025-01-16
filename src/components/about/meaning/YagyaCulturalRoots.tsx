@@ -43,7 +43,7 @@ export function YagyaCulturalRoots() {
         {meanings.map((meaning, index) => (
           <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300">
             <div className="flex items-start space-x-4">
-              <div className="p-3 bg-[#FFF5E6] rounded-full">{meaning.icon}</div>
+              <div className="p-3 bg-background rounded-full">{meaning.icon}</div>
               <div>
                 <h4 className="text-xl font-semibold text-secondary mb-2">{meaning.title}</h4>
                 <p className="text-secondary/80">{meaning.description}</p>

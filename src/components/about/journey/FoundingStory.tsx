@@ -17,7 +17,7 @@ export function FoundingStory() {
           that individuals and organizations face when trying to create positive change.
         </p>
 
-        <div className="my-6 bg-[#FFF5E6] p-6 rounded-lg border-l-4 border-primary">
+        <div className="my-6 bg-background p-6 rounded-lg border-l-4 border-primary">
           <p className="text-secondary italic">
             "Through his own experiences as a changemaker and entrepreneur, Rohit observed a
             recurring pattern: passionate individuals and innovative organizations often worked in

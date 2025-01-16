@@ -4,7 +4,7 @@ import { StoryNarrative } from './story/StoryNarrative';
 
 export function AboutStory() {
   return (
-    <section className="py-24 bg-[#FFF5E6]">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">

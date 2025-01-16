@@ -35,7 +35,7 @@ const latestBlogs = [
 
 export function LatestBlogs() {
   return (
-    <section className="py-16 bg-[#FFF5E6]">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-secondary mb-8">Latest Articles</h2>
 
