@@ -1,13 +1,21 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { paths } from '@/routes';
 import { LinkTo } from './ui/navigate-link';
+import { useAuth } from '@/hooks/use-auth';
+import { removeClientAccessToken } from '@/api/axios';
 
 export default function Header() {
   const navigate = useNavigate();
-
+  const { isAuthenticated } = useAuth();
+  const [loggedIn, setLoggedIn] = useState(false);
+  useEffect(() => {
+    if (isAuthenticated) {
+      setLoggedIn(true);
+    }
+  }, []);
   return (
     <header className="bg-card border-b">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -38,25 +46,35 @@ export default function Header() {
             Contact Us
           </LinkTo>
         </nav>
-
-        <div className="flex items-center space-x-4">
+        {loggedIn ? (
           <Button
-            variant="ghost"
-            className="text-primary"
-            onClick={() => navigate(paths.auth.login)}
+            variant="destructive"
+            onClick={() => {
+              removeClientAccessToken();
+            }}
           >
-            Log In
-          </Button>
-          <Button
-            // className="bg-primary text-white hover:bg-primary/90"
-            onClick={() => navigate(paths.auth.register)}
-          >
-            Sign Up
-          </Button>
-          {/* <Button variant="destructive" onClick={() => {}}>
             Sign Out
-          </Button> */}
-        </div>
+          </Button>
+        ) : (
+          <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              className="text-primary"
+              onClick={() => navigate(paths.auth.login)}
+            >
+              Log In
+            </Button>
+            <Button
+              // className="bg-primary text-white hover:bg-primary/90"
+              onClick={() => navigate(paths.auth.register)}
+            >
+              Sign Up
+            </Button>
+            {/* <Button variant="destructive" onClick={() => {}}>
+            Sign Out
+            </Button> */}
+          </div>
+        )}
       </div>
     </header>
   );

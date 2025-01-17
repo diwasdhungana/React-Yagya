@@ -3,6 +3,7 @@ import { removeClientAccessToken, setClientAccessToken } from '@/api/axios';
 import { LoginRequestSchema, LoginResponseSchema } from '@/api/dtos';
 import { createPostMutationHook } from '@/api/helpers';
 import { Notification } from '@/components/notification';
+import { set } from 'date-fns';
 
 export const useLogin = createPostMutationHook({
   endpoint: 'auth/login',
@@ -21,7 +22,6 @@ export const useLogin = createPostMutationHook({
 
 export const useLogout = createPostMutationHook({
   endpoint: 'auth/logout',
-
   rMutationParams: {
     onSuccess: () => {
       removeClientAccessToken();
@@ -33,7 +33,12 @@ export const useLogout = createPostMutationHook({
 export const useRegister = createPostMutationHook({
   endpoint: 'auth/register',
   rMutationParams: {
-    onSuccess: () => {},
+    onSuccess: (data) => {
+      Notification.success('Success!', 'Registration successful');
+      setTimeout(() => {
+        setClientAccessToken(data.accessToken);
+      }, 1000);
+    },
     onError: (error) => {},
   },
 });

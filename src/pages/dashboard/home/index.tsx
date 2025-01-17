@@ -1,17 +1,18 @@
-import { Notification } from '@/components/notification';
-import { Button } from '@/components/ui/button';
+import { LandingPage } from '@/components/LandingPage';
 import { Page } from '@/components/ui/page';
-export default function HomePage() {
+import { useChat } from '@/hooks/useChat';
+import React from 'react';
+
+const index = () => {
+  const { messages, isNewChat, handleStartChat, handleNewChat, handleSendMessage, initialInput } =
+    useChat();
   return (
-    // <div>This is home page.</div>
-    <Page title="Home">
-      why?
-      <Button
-        onClick={() => Notification.success('You will be notified when the product is available!')}
-        className="px-5 py-3 text-white bg-primary rounded"
-      >
-        Notify me!
-      </Button>
+    <Page title="Chat Page">
+      <div className="flex-1 flex flex-col min-w-0 h-screen">
+        <LandingPage onStartChat={handleStartChat} />
+      </div>
     </Page>
   );
-}
+};
+
+export default index;

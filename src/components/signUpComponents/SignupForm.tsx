@@ -19,6 +19,7 @@ import { useRegister } from '@/hooks/api/auth';
 import { getPasswordStrength } from '@/utilities/passwordStrength';
 // import { SignupSocialButtons } from './SignupSocialButtons';
 import { LinkedInDialog } from './LinkedInDialog';
+import { paths } from '@/routes';
 
 export function SignupForm() {
   const [isOrganization, setIsOrganization] = useState(false);
@@ -39,28 +40,28 @@ export function SignupForm() {
       {
         variables: {
           email: data.email as string,
-          firstName: isOrganization
-            ? (data.contactName as string)
-            : (data.fullName as string)?.split(' ')[0] || (data.fullName as string),
-          lastName: isOrganization ? '' : (data.fullName as string)?.split(' ')[1] || '',
-          userName: (data.username as string) || '',
+          // firstName: isOrganization
+          //   ? (data.contactName as string)
+          //   : (data.fullName as string)?.split(' ')[0] || (data.fullName as string),
+          // lastName: isOrganization ? '' : (data.fullName as string)?.split(' ')[1] || '',
+          username: (data.username as string) || '',
           password: data.password as string,
-          image: '',
-          chatsCreated: [],
-          isOrganization: isOrganization,
-          confirmPassword: data.confirmPassword as string,
-          agreedToTerms: agreedToTerms,
-          ...(isOrganization
-            ? {
-                orgName: data.orgName as string,
-                category: data.category as string,
-              }
-            : {}),
+          // image: '',
+          // chatsCreated: [],
+          // isOrganization: isOrganization,
+          // confirmPassword: data.confirmPassword as string,
+          // agreedToTerms: agreedToTerms,
+          // ...(isOrganization
+          //   ? {
+          //       orgName: data.orgName as string,
+          //       category: data.category as string,
+          //     }
+          //   : {}),
         },
       },
       {
         onSuccess: () => {
-          navigate('/auth/login');
+          navigate(paths.root.root);
         },
         onError: (error) => {
           console.error('Registration error:', error.message);
