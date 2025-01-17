@@ -10,11 +10,7 @@ import { ChatLayout } from '@/layouts/app/chat';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <GuestGuard>
-        <DashboardLayout />
-      </GuestGuard>
-    ),
+    element: <DashboardLayout />,
     children: [
       {
         path: paths.root.root,
@@ -47,11 +43,7 @@ const router = createBrowserRouter([
   },
   {
     path: paths.root.root,
-    element: (
-      // <AuthGuard>
-      <DashboardLayout />
-      // </AuthGuard>
-    ),
+    element: <DashboardLayout />,
     children: [
       {
         index: true,
@@ -78,9 +70,9 @@ const router = createBrowserRouter([
   {
     path: paths.chat.root,
     element: (
-      // <AuthGuard>
-      <ChatLayout />
-      // </AuthGuard>
+      <AuthGuard>
+        <ChatLayout />
+      </AuthGuard>
     ),
     children: [
       {
@@ -98,5 +90,12 @@ const router = createBrowserRouter([
 ]);
 
 export function Router() {
-  return <RouterProvider router={router} />;
+  return (
+    <RouterProvider
+      router={router}
+      future={{
+        v7_startTransition: true,
+      }}
+    />
+  );
 }

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Page } from '@/components/ui/page';
 export default function HomePage() {
   return (
+    // <div>This is home page.</div>
     <Page title="Home">
       why?
       <Button

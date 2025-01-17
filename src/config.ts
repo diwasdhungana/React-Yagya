@@ -1,6 +1,6 @@
 export const app = {
   name: 'Template Dashboard',
-  apiBaseUrl: 'https://api.example.com',
+  apiBaseUrl: 'http://localhost:3000',
   fakeBackend: true,
   redirectQueryParamName: 'r',
   accessTokenStoreKey: 'access_token',

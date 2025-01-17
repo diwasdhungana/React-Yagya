@@ -23,18 +23,18 @@ body {
     --popover: 240 20% 95%;
     --popover-foreground: 240 10% 15%;
 
-    /* Primary colors - Expanded palette */
-    --primary: 250 65% 45%; /* Main brand color */
+    /* Primary colors - Using colors from the image */
+    --primary: 263 90% 52%; /* #7915f3 - Purple */
     --primary-foreground: 0 0% 100%;
-    --secondary: 280 50% 25%; /* Complementary purple */
+    --secondary: 191 84% 40%; /* #4428df - Blue */
     --secondary-foreground: 0 0% 100%;
-    --tertiary: 220 65% 50%; /* Rich blue */
+    --tertiary: 251 73% 51%; /* #119fcd - Cyan */
     --tertiary-foreground: 0 0% 100%;
 
     /* Accent colors */
-    --accent-1: 320 60% 55%; /* Magenta accent */
-    --accent-2: 190 70% 45%; /* Cyan accent */
-    --accent-3: 150 55% 50%; /* Teal accent */
+    --accent-1: 263 90% 52%; /* Same as primary */
+    --accent-2: 251 73% 51%; /* Same as secondary */
+    --accent-3: 191 84% 40%; /* Same as tertiary */
     --accent-foreground: 0 0% 100%;
 
     /* UI elements */
@@ -44,16 +44,16 @@ body {
     --destructive-foreground: 0 0% 100%;
     --border: 240 20% 85%;
     --input: 240 20% 85%;
-    --ring: 250 65% 45%;
+    --ring: 263 90% 52%; /* Using primary color */
     --radius: 0.5rem;
 
-    /* Chart colors - Extended palette */
-    --chart-1: 250 65% 45%; /* Primary */
-    --chart-2: 320 60% 55%; /* Magenta */
-    --chart-3: 190 70% 45%; /* Cyan */
-    --chart-4: 150 55% 50%; /* Teal */
-    --chart-5: 280 50% 55%; /* Purple */
-    --chart-6: 220 65% 50%; /* Blue */
+    /* Chart colors - Using the new palette */
+    --chart-1: 263 90% 52%; /* Primary - Purple */
+    --chart-2: 251 73% 51%; /* Secondary - Blue */
+    --chart-3: 191 84% 40%; /* Tertiary - Cyan */
+    --chart-4: 263 90% 62%; /* Lighter Purple */
+    --chart-5: 251 73% 61%; /* Lighter Blue */
+    --chart-6: 191 84% 50%; /* Lighter Cyan */
   }
 
   .dark {
@@ -67,18 +67,18 @@ body {
     --popover: 240 20% 16%;
     --popover-foreground: 0 0% 98%;
 
-    /* Primary colors - Expanded palette */
-    --primary: 250 65% 55%;
+    /* Primary colors - Slightly lighter for dark mode */
+    --primary: 263 90% 62%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 280 50% 60%;
+    --secondary: 251 73% 61%;
     --secondary-foreground: 0 0% 100%;
-    --tertiary: 220 65% 55%;
+    --tertiary: 191 84% 50%;
     --tertiary-foreground: 0 0% 100%;
 
     /* Accent colors */
-    --accent-1: 320 60% 60%;
-    --accent-2: 190 70% 50%;
-    --accent-3: 150 55% 55%;
+    --accent-1: 263 90% 62%;
+    --accent-2: 251 73% 61%;
+    --accent-3: 191 84% 50%;
     --accent-foreground: 0 0% 100%;
 
     /* UI elements */
@@ -88,15 +88,15 @@ body {
     --destructive-foreground: 0 0% 100%;
     --border: 240 20% 24%;
     --input: 240 20% 24%;
-    --ring: 250 65% 55%;
+    --ring: 263 90% 62%;
 
-    /* Chart colors - Extended palette */
-    --chart-1: 250 65% 55%;
-    --chart-2: 320 60% 60%;
-    --chart-3: 190 70% 50%;
-    --chart-4: 150 55% 55%;
-    --chart-5: 280 50% 60%;
-    --chart-6: 220 65% 55%;
+    /* Chart colors - Slightly lighter for dark mode */
+    --chart-1: 263 90% 62%;
+    --chart-2: 251 73% 61%;
+    --chart-3: 191 84% 50%;
+    --chart-4: 263 90% 72%;
+    --chart-5: 251 73% 71%;
+    --chart-6: 191 84% 60%;
   }
 }
 

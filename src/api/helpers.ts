@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import {
+  MutationOptions,
   QueryClient,
+  QueryOptions,
   UndefinedInitialDataOptions,
   useMutation,
   UseMutationOptions,
@@ -55,11 +57,12 @@ interface EnhancedMutationParams<
  */
 function createUrl(
   base: string,
-  queryParams?: Record<string, string | number | undefined>,
+  queryParams?: Record<string, string | number | undefined | (string | number)[]>,
   routeParams?: Record<string, string | number | undefined>
 ) {
+  // Ensure routeParams is a proper object before processing
   const url = Object.entries(routeParams ?? {}).reduce(
-    (acc, [key, value]) => acc.replaceAll(`:${key}`, String(value)),
+    (acc, [key, value]) => acc.replaceAll(`:${key}`, String(value)), // Replace dynamic params in the base URL
     base
   );
 
@@ -67,12 +70,20 @@ function createUrl(
 
   const query = new URLSearchParams();
 
+  // Append valid query parameters to the URL
   Object.entries(queryParams).forEach(([key, value]) => {
     if (value === undefined || value === null || value === '') return;
-    query.append(key, String(value));
+
+    // Handle case where value is an array (like multiple filters)
+    if (Array.isArray(value)) {
+      value.forEach((val) => query.append(key, String(val)));
+    } else {
+      query.append(key, String(value));
+    }
   });
 
-  return `${url}?${query.toString()}`;
+  const finalUrl = query.toString() ? `${url}?${query.toString()}` : url;
+  return finalUrl;
 }
 
 type QueryKey = [string] | [string, Record<string, string | number | undefined>];
@@ -82,8 +93,10 @@ function getQueryKey(
   route: Record<string, string | number | undefined> = {},
   query: Record<string, string | number | undefined> = {}
 ) {
+  // Ensure that queryKey is an array with the main key and the merged query params
   const [mainKey, otherKeys = {}] = queryKey;
 
+  // Return the final query key which is always an array
   return [mainKey, { ...otherKeys, ...route, ...query }];
 }
 
@@ -102,94 +115,56 @@ function handleRequestError(error: unknown) {
   throw error;
 }
 
-/* ----------------------------------- GET ---------------------------------- */
-
-interface CreateGetQueryHookArgs<ResponseSchema extends z.ZodType> {
-  /** The endpoint for the GET request */
-  endpoint: string;
-  /** The Zod schema for the response data */
-  responseSchema: ResponseSchema;
-  /** The query parameters for the react-query hook */
-  rQueryParams: Omit<UndefinedInitialDataOptions, 'queryFn' | 'queryKey'> & {
-    queryKey: QueryKey;
-  };
-}
-
-/**
- * Create a custom hook for performing GET requests with react-query and Zod validation
- *
- * @example
- * const useGetUser = createGetQueryHook<typeof userSchema, { id: string }>({
- *   endpoint: '/api/users/:id',
- *   responseSchema: userSchema,
- *   rQueryParams: { queryKey: ['getUser'] },
- * });
- *
- * const { data, error } = useGetUser({ route: { id: 1 } });
- */
 export function createGetQueryHook<
-  ResponseSchema extends z.ZodType,
   RouteParams extends Record<string, string | number | undefined> = {},
   QueryParams extends Record<string, string | number | undefined> = {},
->({ endpoint, responseSchema, rQueryParams }: CreateGetQueryHookArgs<ResponseSchema>) {
+>({ endpoint, rQueryParams }: { endpoint: string; rQueryParams?: QueryOptions<any, any, any> }) {
+  // Function to handle the API request
   const queryFn = async (params?: { query?: QueryParams; route?: RouteParams }) => {
     const url = createUrl(endpoint, params?.query, params?.route);
     return client
       .get(url)
-      .then((response) => responseSchema.parse(response.data))
+      .then((response) => response.data)
       .catch(handleRequestError);
   };
 
-  return (params?: { query?: QueryParams; route?: RouteParams }) =>
-    useQuery({
-      ...rQueryParams,
-      queryKey: getQueryKey(rQueryParams.queryKey, params?.route, params?.query),
-      queryFn: () => queryFn(params),
-    }) as UseQueryResult<z.infer<ResponseSchema>>;
+  // The hook that will use the query function
+  return (
+    params?: { query?: QueryParams; route?: RouteParams },
+    options?: QueryOptions<any, any, any>
+  ) => {
+    // Ensure that the queryKey is always an array
+    const queryKey = Array.isArray(rQueryParams?.queryKey)
+      ? (rQueryParams?.queryKey as QueryKey)
+      : ([rQueryParams?.queryKey || endpoint] as QueryKey); // Use endpoint if queryKey is not provided
+
+    // Get the final query key including the route and query params
+    const finalQueryKey = getQueryKey(queryKey, params?.route, params?.query);
+
+    return useQuery({
+      ...rQueryParams, // Default options
+      queryKey: finalQueryKey, // Pass the final query key
+      queryFn: () => queryFn(params), // Function to call the API
+      ...options, // Override default options with custom options (like `enabled`)
+    });
+  };
 }
 
 /* ---------------------------------- POST ---------------------------------- */
 
-interface CreatePostMutationHookArgs<
-  BodySchema extends z.ZodType,
-  ResponseSchema extends z.ZodType,
-> {
-  /** The endpoint for the POST request */
-  endpoint: string;
-  /** The Zod schema for the request body */
-  bodySchema: BodySchema;
-  /** The Zod schema for the response data */
-  responseSchema: ResponseSchema;
-  /** The mutation parameters for the react-query hook */
-  rMutationParams?: EnhancedMutationParams<z.infer<ResponseSchema>, Error, z.infer<BodySchema>>;
-  options?: { isMultipart?: boolean };
-}
-
-/**
- * Create a custom hook for performing POST requests with react-query and Zod validation
- *
- * @example
- * const useCreateUser = createPostMutationHook({
- *  endpoint: '/api/users',
- *  bodySchema: createUserSchema,
- *  responseSchema: userSchema,
- *  rMutationParams: { onSuccess: () => queryClient.invalidateQueries('getUsers') },
- * });
- */
 export function createPostMutationHook<
-  BodySchema extends z.ZodType,
-  ResponseSchema extends z.ZodType,
   RouteParams extends Record<string, string | number | undefined> = {},
   QueryParams extends Record<string, string | number | undefined> = {},
 >({
   endpoint,
-  bodySchema,
-  responseSchema,
   rMutationParams,
   options,
-}: CreatePostMutationHookArgs<BodySchema, ResponseSchema>) {
+}: {
+  endpoint: string;
+  rMutationParams?: MutationOptions<any, any, any>; // Any type for mutation params
+  options?: { isMultipart?: boolean }; // Optional multipart option
+}) {
   return (params?: { query?: QueryParams; route?: RouteParams }) => {
-    const queryClient = useQueryClient();
     const baseUrl = createUrl(endpoint, params?.query, params?.route);
 
     const mutationFn = async ({
@@ -197,7 +172,7 @@ export function createPostMutationHook<
       route,
       query,
     }: {
-      variables: z.infer<BodySchema>;
+      variables: any; // No schema validation for variables
       query?: QueryParams;
       route?: RouteParams;
     }) => {
@@ -206,13 +181,10 @@ export function createPostMutationHook<
       const config = options?.isMultipart
         ? { headers: { 'Content-Type': 'multipart/form-data' } }
         : undefined;
-
       return client
-        .post(url, bodySchema.parse(variables), config)
+        .post(url, variables, config) // No bodySchema validation here
         .then((response) => {
-          console.log(response);
-          // return responseSchema.parse(response.data.data);
-          return response.data.data;
+          return response.data.data; // No responseSchema validation
         })
         .catch(handleRequestError);
     };
@@ -221,31 +193,15 @@ export function createPostMutationHook<
       ...rMutationParams,
       mutationFn,
       onSuccess: (data, variables, context) =>
-        rMutationParams?.onSuccess?.(data, variables, context, queryClient),
-      onError: (error, variables, context) =>
-        rMutationParams?.onError?.(error, variables, context, queryClient),
+        rMutationParams?.onSuccess?.(data, variables, context),
+      onError: (error, variables, context) => rMutationParams?.onError?.(error, variables, context),
       onSettled: (data, error, variables, context) =>
-        rMutationParams?.onSettled?.(data, error, variables, context, queryClient),
+        rMutationParams?.onSettled?.(data, error, variables, context),
     });
   };
 }
 
 /* ----------------------------------- PUT ---------------------------------- */
-
-interface CreatePutMutationHookArgs<
-  BodySchema extends z.ZodType,
-  ResponseSchema extends z.ZodType,
-> {
-  /** The endpoint for the PUT request */
-  endpoint: string;
-  /** The Zod schema for the request body */
-  bodySchema: BodySchema;
-  /** The Zod schema for the response data */
-  responseSchema: ResponseSchema;
-  /** The mutation parameters for the react-query hook */
-  rMutationParams?: EnhancedMutationParams<z.infer<ResponseSchema>, Error, z.infer<BodySchema>>;
-  options?: { isMultipart?: boolean };
-}
 
 /**
  * Create a custom hook for performing PUT requests with react-query and Zod validation
@@ -259,26 +215,86 @@ interface CreatePutMutationHookArgs<
  * });
  */
 export function createPutMutationHook<
-  BodySchema extends z.ZodType,
-  ResponseSchema extends z.ZodType,
   RouteParams extends Record<string, string | number | undefined> = {},
   QueryParams extends Record<string, string | number | undefined> = {},
 >({
   endpoint,
-  bodySchema,
-  responseSchema,
   rMutationParams,
   options,
-}: CreatePutMutationHookArgs<BodySchema, ResponseSchema>) {
+}: {
+  endpoint: string;
+  rMutationParams?: MutationOptions<any, any, any>; // Any type for mutation params
+  options?: { isMultipart?: boolean }; // Optional multipart option
+}) {
   return (params?: { query?: QueryParams; route?: RouteParams }) => {
     const queryClient = useQueryClient();
+
+    // Base URL based on endpoint and optional query/route params
     const baseUrl = createUrl(endpoint, params?.query, params?.route);
+
+    // Mutation function
+    const mutationFn = async ({
+      variables,
+      query,
+      route,
+    }: {
+      variables: any;
+      query?: QueryParams;
+      route?: RouteParams;
+    }) => {
+      // Create final URL by combining base URL with any additional query/route params
+      const url = createUrl(baseUrl, query, route);
+
+      // Set configuration based on whether the request is multipart
+      const config = options?.isMultipart
+        ? { headers: { 'Content-Type': 'multipart/form-data' } }
+        : undefined;
+
+      // Send PUT request with variables and configuration
+      return client
+        .put(url, variables, config) // No need to parse variables; it's passed directly
+        .then((response) => {
+          return response.data.data;
+        }) // Parse response
+        .catch(handleRequestError); // Handle any errors
+    };
+
+    // Return the useMutation hook with provided mutation function and lifecycle hooks
+    return useMutation({
+      ...rMutationParams,
+      mutationFn, // Use the mutation function we just defined
+      onSuccess: (data, variables, context) =>
+        rMutationParams?.onSuccess?.(data, variables, context),
+      onError: (error, variables, context) => rMutationParams?.onError?.(error, variables, context),
+      onSettled: (data, error, variables, context) =>
+        rMutationParams?.onSettled?.(data, error, variables, context),
+    });
+  };
+}
+
+/* --------------------------------- DELETE --------------------------------- */
+
+export function createDeleteManyMutationHook<
+  RouteParams extends Record<string, string | number | undefined> = {},
+  QueryParams extends Record<string, string | number | undefined> = {},
+>({
+  endpoint,
+  rMutationParams,
+  options,
+}: {
+  endpoint: string;
+  rMutationParams?: MutationOptions<any, any, any>; // Any type for mutation params
+  options?: { isMultipart?: boolean }; // Optional multipart option
+}) {
+  return (params?: { query?: QueryParams; route?: RouteParams }) => {
+    const baseUrl = createUrl(endpoint, params?.query, params?.route);
+
     const mutationFn = async ({
       variables,
       route,
       query,
     }: {
-      variables: z.infer<BodySchema>;
+      variables: any; // No schema validation for variables
       query?: QueryParams;
       route?: RouteParams;
     }) => {
@@ -287,10 +303,11 @@ export function createPutMutationHook<
       const config = options?.isMultipart
         ? { headers: { 'Content-Type': 'multipart/form-data' } }
         : undefined;
-
       return client
-        .put(url, bodySchema.parse(variables), config)
-        .then((response) => responseSchema.parse(response.data))
+        .delete(url, { data: variables }) // No bodySchema validation here
+        .then((response) => {
+          return response.data.data; // No responseSchema validation
+        })
         .catch(handleRequestError);
     };
 
@@ -298,75 +315,44 @@ export function createPutMutationHook<
       ...rMutationParams,
       mutationFn,
       onSuccess: (data, variables, context) =>
-        rMutationParams?.onSuccess?.(data, variables, context, queryClient),
-      onError: (error, variables, context) =>
-        rMutationParams?.onError?.(error, variables, context, queryClient),
+        rMutationParams?.onSuccess?.(data, variables, context),
+      onError: (error, variables, context) => rMutationParams?.onError?.(error, variables, context),
       onSettled: (data, error, variables, context) =>
-        rMutationParams?.onSettled?.(data, error, variables, context, queryClient),
+        rMutationParams?.onSettled?.(data, error, variables, context),
     });
   };
 }
 
-/* --------------------------------- DELETE --------------------------------- */
-
-interface CreateDeleteMutationHookArgs<
-  TData = unknown,
-  TError = Error,
-  TVariables = void,
-  TContext = unknown,
-> {
-  /** The endpoint for the DELETE request */
-  endpoint: string;
-  /** The mutation parameters for the react-query hook */
-  rMutationParams?: EnhancedMutationParams<TData, TError, TVariables, TContext>;
-}
-
-/**
- * Create a custom hook for performing DELETE requests with react-query
- *
- * @example
- * const useDeleteUser = createDeleteMutationHook<typeof userSchema, { id: string }>({
- *  endpoint: '/api/users/:id',
- *  rMutationParams: { onSuccess: () => queryClient.invalidateQueries('getUsers') },
- * });
- */
 export function createDeleteMutationHook<
-  ModelSchema extends z.ZodType,
   RouteParams extends Record<string, string | number | undefined> = {},
   QueryParams extends Record<string, string | number | undefined> = {},
 >({
   endpoint,
   rMutationParams,
-}: CreateDeleteMutationHookArgs<z.infer<ModelSchema>, Error, z.infer<ModelSchema>>) {
+}: {
+  endpoint: string;
+  rMutationParams?: MutationOptions<any, any, any>;
+}) {
   return (params?: { query?: QueryParams; route?: RouteParams }) => {
     const queryClient = useQueryClient();
     const baseUrl = createUrl(endpoint, params?.query, params?.route);
 
-    const mutationFn = async ({
-      model,
-      route,
-      query,
-    }: {
-      model: z.infer<ModelSchema>;
-      query?: QueryParams;
-      route?: RouteParams;
-    }) => {
+    // Mutation function for delete
+    const mutationFn = async ({ route, query }: { query?: QueryParams; route?: RouteParams }) => {
       const url = createUrl(baseUrl, query, route);
       return client
-        .delete(url)
-        .then(() => model)
-        .catch(handleRequestError);
+        .delete(url) // Perform DELETE request
+        .catch(handleRequestError); // Handle errors
     };
 
     return useMutation({
-      ...rMutationParams,
-      mutationFn,
+      ...rMutationParams, // Default mutation options
+      mutationFn, // Mutation function
       onSuccess: (data, variables, context) =>
-        rMutationParams?.onSuccess?.(data, variables, context, queryClient),
-      onError: (error, variables, context) =>
-        rMutationParams?.onError?.(error, variables, context, queryClient),
+        rMutationParams?.onSuccess?.(data, variables, context),
+      onError: (error, variables, context) => rMutationParams?.onError?.(error, variables, context),
       onSettled: (data, error, variables, context) =>
-        rMutationParams?.onSettled?.(data, error, variables, context, queryClient),
+        rMutationParams?.onSettled?.(data, error, variables, context),
     });
   };
 }
@@ -430,24 +416,24 @@ export type SortableQueryParams = {
  * });
  */
 export function createPaginationQueryHook<
-  DataSchema extends z.ZodType,
   QueryParams extends Record<string, string | number | undefined> = SortableQueryParams,
   RouteParams extends Record<string, string | number | undefined> = {},
->({ endpoint, dataSchema, rQueryParams }: CreatePaginationQueryHookArgs<DataSchema>) {
+>({
+  endpoint,
+  rQueryParams,
+}: {
+  endpoint: string;
+  rQueryParams?: QueryOptions<any, any, any>; // General query options without schema validation
+}) {
   const queryFn = async (params: {
     query?: QueryParams & PaginationParams;
     route?: RouteParams;
   }) => {
     const url = createUrl(endpoint, params?.query, params?.route);
 
-    const schema = z.object({
-      data: dataSchema.array(),
-      meta: PaginationMetaSchema,
-    });
-
     return client
       .get(url)
-      .then((response) => schema.parse(response.data))
+      .then((response) => response.data) // Removed schema validation
       .catch(handleRequestError);
   };
 
@@ -455,10 +441,18 @@ export function createPaginationQueryHook<
     const query = { page: 1, limit: 25, ...params?.query } as unknown as QueryParams;
     const route = params?.route ?? ({} as RouteParams);
 
+    // Ensure that the queryKey is properly constructed
+    const queryKey = Array.isArray(rQueryParams?.queryKey)
+      ? (rQueryParams.queryKey as QueryKey)
+      : ([rQueryParams?.queryKey || endpoint] as QueryKey); // Default to endpoint if queryKey is not provided
+
+    // Build the query key with the current route and query parameters
+    const finalQueryKey = getQueryKey(queryKey, route, query);
+
     return useQuery({
       ...rQueryParams,
-      queryKey: getQueryKey(rQueryParams.queryKey, route, query),
+      queryKey: finalQueryKey,
       queryFn: () => queryFn({ query, route }),
-    }) as UseQueryResult<{ meta: PaginationMeta; data: z.infer<DataSchema>[] }>;
+    });
   };
 }
