@@ -1,6 +1,6 @@
 export const app = {
   name: 'Template Dashboard',
-  apiBaseUrl: 'http://localhost:3001',
+  apiBaseUrl: 'https://yagya.ai/api',
   fakeBackend: true,
   redirectQueryParamName: 'r',
   accessTokenStoreKey: 'access_token',
