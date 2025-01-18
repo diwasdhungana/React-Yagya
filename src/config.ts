@@ -1,5 +1,5 @@
 export const app = {
-  name: 'Template Dashboard',
+  name: 'Yagya AI ',
   apiBaseUrl: 'http://localhost:3001',
   fakeBackend: true,
   redirectQueryParamName: 'r',

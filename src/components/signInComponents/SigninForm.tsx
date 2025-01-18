@@ -121,7 +121,7 @@ export function SigninForm() {
         Dont have an account?{' '}
         <span
           className="font-medium inline-block text-primary hover:underline cursor-pointer"
-          onClick={() => navigate('/auth/signup')}
+          onClick={() => navigate('/auth/register')}
         >
           Sign up
         </span>

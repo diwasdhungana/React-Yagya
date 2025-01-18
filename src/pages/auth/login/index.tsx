@@ -5,9 +5,9 @@ export default function LoginPage() {
     <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md ">
         <img
-          className="mx-auto h-12 w-auto"
+          className="mx-auto h-16 w-auto"
           alt="Yagya.ai Logo"
-          src="https://yagya.ai/favicon.png"
+          src="/assets/favicon.png"
           width={48}
           height={48}
         />

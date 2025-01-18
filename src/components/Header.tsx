@@ -26,7 +26,7 @@ export default function Header() {
           <img
             className="mx-auto h-12 w-auto"
             alt="Yagya.ai Logo"
-            src="https://yagya.ai/favicon.png"
+            src="/assets/favicon.png"
             width={46}
             height={23}
           />

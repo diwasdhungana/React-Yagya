@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Rocket, Gift, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const benefits = [
   {
@@ -22,6 +23,8 @@ const benefits = [
 ];
 
 export function AboutJoinUs() {
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 bg-gradient-to-br from-secondary to-secondary/80 text-white">
       <div className="container mx-auto px-6">
@@ -52,6 +55,7 @@ export function AboutJoinUs() {
           <Button
             size="lg"
             className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-full"
+            onClick={() => navigate('/auth/register')}
           >
             Sign Up Now
           </Button>

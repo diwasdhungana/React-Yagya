@@ -39,6 +39,7 @@ export function AboutHero() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white group transition-all duration-300"
+              onClick={() => (window.location.href = 'https://rishi.yagya.ai')}
             >
               Let Rishi Guide You
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -46,7 +47,7 @@ export function AboutHero() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10 group"
+              className="border-white text-primary hover:bg-white/10:text-primary group"
             >
               Explore Yagya.ai
             </Button>

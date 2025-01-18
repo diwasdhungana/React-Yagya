@@ -1,13 +1,15 @@
-"use client";
-import { useState } from "react";
-import type { Message } from "@/types/index";
+'use client';
+import { useState } from 'react';
+import type { Message } from '@/types/index';
 
 export function useChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isNewChat, setIsNewChat] = useState(true);
-  const [initialInput, setInitialInput] = useState<string>("");
+  const [initialInput, setInitialInput] = useState<string>('');
 
   const handleStartChat = (input: string) => {
+    navigator.clipboard.writeText('__fromHomePage__' + input);
+    window.location.href = 'https://rishi.yagya.ai';
     setIsNewChat(false);
     setInitialInput(input);
     setMessages([]);
@@ -16,7 +18,7 @@ export function useChat() {
   const handleNewChat = () => {
     setIsNewChat(true);
     setMessages([]);
-    setInitialInput("");
+    setInitialInput('');
   };
 
   const handleSendMessage = (content: string) => {

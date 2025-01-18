@@ -196,7 +196,7 @@ export function SignupForm() {
           Already have an account?{' '}
           <span
             className="font-medium inline-block text-primary hover:underline cursor-pointer"
-            onClick={() => navigate('/auth/signin')}
+            onClick={() => navigate('/auth/login')}
           >
             Sign in
           </span>
